@@ -22,8 +22,8 @@ const SideBar = () => (
     <section className="blurb">
       <h2>About</h2>
       <p>Hi, I&apos;m Hassan. A code-blooded Computer
-        Scientist, <a href="https://www.w3schools.com/whatis/whatis_fullstack.asp" rel="noreferrer" target="_blank">full-sack developer</a>,
-        and ungerdraduate at <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
+        Scientist, <a href="https://www.w3schools.com/whatis/whatis_fullstack.asp" rel="noreferrer" target="_blank">full-stack developer</a>,
+        and undergraduate at <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
         I live in <a href="https://en.wikipedia.org/wiki/Lahore" rel="noreferrer" target="_blank">Lahore - the city of gardens</a>.
         I enjoys learning and creating new things.
         I&apos;m passionate
