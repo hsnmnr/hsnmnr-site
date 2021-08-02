@@ -1,4 +1,7 @@
-import React, { Suspense, lazy } from 'react';
+/* eslint-disable no-console */
+import React, {
+  Suspense, lazy,
+} from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from './layouts/Main'; // fallback for lazy pages
 import './static/css/main.scss'; // All of our styles
@@ -16,20 +19,41 @@ const Projects = lazy(() => import('./pages/Projects'));
 const Resume = lazy(() => import('./pages/Resume'));
 // const Stats = lazy(() => import('./pages/Stats'));
 
-const App = () => (
-  <BrowserRouter basename={PUBLIC_URL}>
-    <Suspense fallback={<Main />}>
-      <Switch>
-        <Route exact path="/" component={Index} />
-        {/* <Route path="/about" component={About} /> */}
-        <Route path="/projects" component={Projects} />
-        {/* <Route path="/stats" component={Stats} /> */}
-        <Route path="/contact" component={Contact} />
-        <Route path="/resume" component={Resume} />
-        <Route component={NotFound} status={404} />
-      </Switch>
-    </Suspense>
-  </BrowserRouter>
-);
+function App() {
+  console.log(localStorage.getItem('isLight') === 'true');
+
+  // React useEffect hook that will fire up
+  // when "darkTheme" changes
+  // useEffect(() => {
+  //   // Accessing scss variable "--background-color"
+  //   // and "--text-color" using plain JavaScript
+  //   // and changing the same according to the state of "darkTheme"
+  //   document.documentElement.style.setProperty('--light-color', 'yellow');
+  //   const root = document.documentElement;
+  //   console.log(root);
+  //   // root?.style.setProperty(
+  //   //   '--lighto',
+  //   //   localStorage.getItem('isLight') === 'true',
+  //   // );
+
+  //   // console.log()
+  // });
+
+  return (
+    <BrowserRouter basename={PUBLIC_URL}>
+      <Suspense fallback={<Main />}>
+        <Switch>
+          <Route exact path="/" component={Index} />
+          {/* <Route path="/about" component={About} /> */}
+          <Route path="/projects" component={Projects} />
+          {/* <Route path="/stats" component={Stats} /> */}
+          <Route path="/contact" component={Contact} />
+          <Route path="/resume" component={Resume} />
+          <Route component={NotFound} status={404} />
+        </Switch>
+      </Suspense>
+    </BrowserRouter>
+  );
+}
 
 export default App;

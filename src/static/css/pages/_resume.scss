@@ -124,6 +124,10 @@
 	// display: none;
 }
 
+.holds-the-iframe {
+	background:url('./loading.gif') center center no-repeat;
+}
+
 @include breakpoint(small) {
 	.course-dot {
 		display: none;

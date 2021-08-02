@@ -1,11 +1,11 @@
 {
-  "name": "personal-site",
+  "name": "hsnmnr-site",
   "version": "3.0.1",
   "homepage": "https://hassanmunir.tech/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mldangelo/personal-site.git"
+    "url": "https://github.com/hsnmnr/hsnmnr-site.git"
   },
   "scripts": {
     "build": "rimraf ./build && react-scripts build",
@@ -22,9 +22,11 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "0.1.14",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "dayjs": "^1.10.4",
     "gh-pages": "^3.1.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^6.0.1",
     "prop-types": "^15.7.2",
     "raw.macro": "^0.4.2",
     "react": "^17.0.1",
@@ -36,7 +38,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-snap": "^1.23.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",

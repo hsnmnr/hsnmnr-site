@@ -1,3 +1,9 @@
+// @if $check {
+// 	$theme: $palette;
+// } @else {
+// 	$theme: $dalette;
+// }
+
 /// Gets a duration value.
 /// @param {string} $keys Key(s).
 /// @return {string} Value.

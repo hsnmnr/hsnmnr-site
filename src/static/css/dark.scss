@@ -1,14 +1,7 @@
 @import-normalize;
 
-// :root {
-// 	--light-color: red;
-//   } // we can also define variables with JavaScript
-
-// $light: var(--light-color);
-// // $light: true;
-// $theme: false;
-// $color: yellow;
-// $check: $color == $light;
+$light: false;
+$theme: false;
 
 @import 'libs/vars';
 @import 'libs/functions';
@@ -26,7 +19,7 @@
 
 	@include skel-breakpoints((
 		xlarge: '(max-width: 1680px)',
-		large: '(max-width: 1250px)',
+		large: '(max-width: 1230px)',
 		medium: '(max-width: 980px)',
 		small: '(max-width: 750px)',
 		xsmall: '(max-width: 685px)'

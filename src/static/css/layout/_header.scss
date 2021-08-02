@@ -89,6 +89,16 @@
 			}
 		}
 
+		.container{
+			display: flex;
+			width: 100px;
+		}
+		
+		.dark-mode{
+			display: flex;
+			align-items:center;
+		}
+
 		.main {
 			height: inherit;
 			line-height: inherit;

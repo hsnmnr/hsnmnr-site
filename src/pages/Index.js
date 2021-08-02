@@ -51,7 +51,7 @@ const Index = () => (
         <FontAwesomeIcon icon={faPlus} /> Tools
         <p className="technologies">
           VS Code, GitHub, GitLab, Git, Slack, Trello,
-          Postman, Unity3D, Android Studio, Jupyter Notebook
+          Postman, Unity3D, Android Studio
         </p>
       </p>
       <br />
