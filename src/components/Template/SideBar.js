@@ -22,10 +22,10 @@ const SideBar = () => (
     <section className="blurb">
       <h2>About</h2>
       <p>Hi, I&apos;m Hassan. A code-blooded Computer
-        Scientist, <a href="https://www.w3schools.com/whatis/whatis_fullstack.asp" rel="noreferrer" target="_blank">full-stack developer</a>,
+        Scientist, <a href="https://skillcrush.com/blog/front-end-back-end-full-stack/" rel="noreferrer" target="_blank">full-stack developer</a>,
         and undergraduate at <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
         I live in <a href="https://en.wikipedia.org/wiki/Lahore" rel="noreferrer" target="_blank">Lahore - the city of gardens</a>.
-        I enjoys learning and creating new things.
+        I enjoy learning and creating new things.
         I&apos;m passionate
         about <a href="https://javascript.info/intro" rel="noreferrer" target="_blank">JavaScript</a>
         , <a href="https://medium.com/engineered-publicis-sapient/javascript-es6-es7-es10-where-are-we-8ac044dfd964" rel="noreferrer" target="_blank">ECMAScript</a>

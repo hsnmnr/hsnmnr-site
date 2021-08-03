@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import DarkMode from '../DarkMode/DarkMode';
+// import DarkMode from '../DarkMode/DarkMode';
 import routes from '../../data/routes';
 
 const Menu = lazy(() => import('react-burger-menu/lib/menus/slide'));
@@ -11,7 +11,7 @@ const Hamburger = () => {
 
   return (
     <div className="container">
-      <DarkMode className="dark-mode" />
+      {/* <DarkMode className="dark-mode" /> */}
       <div className="hamburger-container">
         <nav className="main" id="hambuger-nav">
           <ul>

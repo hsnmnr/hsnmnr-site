@@ -6,7 +6,7 @@ const Cell = ({ data }) => (
   <div className="cell-container">
     <article className="mini-post">
       <header>
-        <h3><a href={data.link}>{data.title}</a></h3>
+        <h3><a href={data.link} target="_blank" rel="noreferrer">{data.title}</a></h3>
         <time className="published">{dayjs(data.date).format('MMMM, YYYY')}</time>
       </header>
       <a href={data.link} rel="noreferrer" target="_blank" className="image">
