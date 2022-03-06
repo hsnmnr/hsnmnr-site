@@ -1,6 +1,6 @@
 # Adapting this Website
 
-Many people have contacted me about adapting this website. I have tried to make things as simple as possible. There are still bugs. I am sorry. If you find a bug, please email me (help@hassanmunir.tech), submit a pull request (I'll buy you a coffee as a thank you), or submit an issue.
+Many people have contacted me about adapting this website. I have tried to make things as simple as possible. There are still bugs. I am sorry. If you find a bug, please email me (help@hassanmunir.me), submit a pull request (I'll buy you a coffee as a thank you), or submit an issue.
 
 You may wish to fork this repository or remove my remote origin and add your own. Go [here](https://help.github.com/articles/changing-a-remote-s-url/) for more information on how to change remotes.
 
@@ -14,7 +14,7 @@ You may wish to fork this repository or remove my remote origin and add your own
 ### Setup
 
 1. Run the project before making any modifications by following the set up and running instructions in the main [README.md](https://github.com/hsnmnr/hsnmnr-site#set-up).
-1. Change `homepage` in `package.json` to reflect where you plan to host the site. This is important for static exporting via react-snap. This also changes your path when developing locally. For example, a homepage of `hassanmunir.tech` places the site at `localhost:3000` and a homepage of `https://hsnmnr.github.io/hsnmnr-site/` places the site at `localhost:3000/hsnmnr-site/`. If you plan to host at on a path such as `https://[your-github-username].github.io/[your-repo-name]`, you should set this now so that your development environment mirrors your production environment.
+1. Change `homepage` in `package.json` to reflect where you plan to host the site. This is important for static exporting via react-snap. This also changes your path when developing locally. For example, a homepage of `hassanmunir.me` places the site at `localhost:3000` and a homepage of `https://hsnmnr.github.io/hsnmnr-site/` places the site at `localhost:3000/hsnmnr-site/`. If you plan to host at on a path such as `https://[your-github-username].github.io/[your-repo-name]`, you should set this now so that your development environment mirrors your production environment.
 1. Create a `.env` file. To do this, run:
 
     ```bash
@@ -59,7 +59,7 @@ Here are answers to questions I've been asked at least twice. I've attempted to 
 
 1. My CSS isn't rendering, or I see a 404 instead of my site:
 
-    Make sure the `homepage` field of `package.json` points to where you plan to host your site index. Also, double check that you created a `CNAME` file (see deployment instructions above). If neither of these work, please open an issue or send me an [email](mailto:help@hassanmunir.tech).
+    Make sure the `homepage` field of `package.json` points to where you plan to host your site index. Also, double check that you created a `CNAME` file (see deployment instructions above). If neither of these work, please open an issue or send me an [email](mailto:help@hassanmunir.me).
 
 2. LF / CRLF issues with eslint.
 

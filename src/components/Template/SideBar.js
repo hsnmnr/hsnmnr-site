@@ -43,7 +43,7 @@ const SideBar = () => (
 
     <section id="footer">
       <ContactIcons />
-      <p className="copyright">&copy; Hassan Munir <Link to="/">hassanmunir.tech</Link>.</p>
+      <p className="copyright">&copy; Hassan Munir <Link to="/">hassanmunir.me</Link>.</p>
     </section>
   </section>
 );
