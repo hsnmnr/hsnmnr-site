@@ -42,7 +42,8 @@ const Resume = () => (
       </header>
 
       <div style={{ height: '100vh' }}>
-        <iframe className="holds-the-iframe" title="Hassan Resume" src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/hsnmnr/hsnmnr/8c7a8956bcf8debfd5c7b33e4c19fd567128779a/Hassan%20Resume.pdf?token=AM7MC5Z7MK3C56SE27CYD6LBBGF7U&embedded=true" style={{ width: '100%', height: '100%' }} frameBorder="0" />
+        {/* <iframe className="holds-the-iframe" title="Hassan Resume" src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/hsnmnr/hsnmnr/76e8530b26a5fac3d01921b1cc31313795d2ffb6/Hassan%20Resume.pdf?token=AM7MC5Z7MK3C56SE27CYD6LBBGF7U&embedded=true" style={{ width: '100%', height: '100%' }} frameBorder="0" /> */}
+        <iframe className="holds-the-iframe" title="Hassan Resume" src="https://docs.google.com/gview?url=https://github.com/hsnmnr/hsnmnr/raw/main/Hassan%20Resume.pdf&embedded=true" style={{ width: '100%', height: '100%' }} frameBorder="0" />
       </div>
 
       {/* <Education data={degrees} />

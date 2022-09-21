@@ -22,8 +22,8 @@ const SideBar = () => (
     <section className="blurb">
       <h2>About</h2>
       <p>Hi, I&apos;m Hassan. A code-blooded Computer
-        Scientist, <a href="https://skillcrush.com/blog/front-end-back-end-full-stack/" rel="noreferrer" target="_blank">full-stack developer</a>,
-        and undergraduate at <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
+        Scientist, <a href="https://skillcrush.com/blog/front-end-back-end-full-stack/" rel="noreferrer" target="_blank">Full Stack Engineer</a>,
+        and Alumni of <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
         I live in <a href="https://en.wikipedia.org/wiki/Lahore" rel="noreferrer" target="_blank">Lahore - the city of gardens</a>.
         I enjoy learning and creating new things.
         I&apos;m passionate
