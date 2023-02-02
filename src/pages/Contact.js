@@ -16,7 +16,7 @@ import Main from '../layouts/Main';
 const Contact = () => (
   <Main
     title="Contact"
-    description="Contact Hassan Munir via email @ michael.l.dangelo@gmail.com"
+    description="Contact Mohammad Aziz via email @ michael.l.dangelo@gmail.com"
   >
     <article className="post" id="contact">
       <header>
@@ -27,12 +27,12 @@ const Contact = () => (
       <div className="email-at">
         <p>Feel free to get in touch. You can contact me at: </p>
         {/* <EmailLink /> */}
-        <a href="tel:+923070401940" rel="noreferrer" target="_blank">
-          <FontAwesomeIcon icon={faPhone} /> (+92) 307 0401940
+        <a href="tel:+923216006717" rel="noreferrer" target="_blank">
+          <FontAwesomeIcon icon={faPhone} /> (+92) 321 6006717
         </a>
         <br />
-        <a href="mailto:hassanmunir.me@gmail.com" rel="noreferrer" target="_blank">
-          <FontAwesomeIcon icon={faEnvelope} /> hassanmunir.me@gmail.com
+        <a href="mailto:mohammadazizramay@gmail.com" rel="noreferrer" target="_blank">
+          <FontAwesomeIcon icon={faEnvelope} /> mohammadazizramay@gmail.com
         </a>
         <br />
         <a href=" http://maps.google.com/?q=Lahore, Pakistan" rel="noreferrer" target="_blank">
@@ -44,13 +44,13 @@ const Contact = () => (
       <br />
       <ul className="actions">
         <li>
-          <a href="https://www.linkedin.com/in/hsnmnr" rel="noreferrer" target="_blank" className="button"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</a>
+          <a href="https://www.linkedin.com/in/mohdzez" rel="noreferrer" target="_blank" className="button"><FontAwesomeIcon icon={faLinkedin} /> LinkedIn</a>
         </li>
         <li>
-          <a href="https://www.github.com/hsnmnr" rel="noreferrer" target="_blank" className="button"><FontAwesomeIcon icon={faGithub} /> Github</a>
+          <a href="https://www.github.com/mohdzez" rel="noreferrer" target="_blank" className="button"><FontAwesomeIcon icon={faGithub} /> Github</a>
         </li>
         {/* <li>
-          <a href="mailto:hassanmunir.me@gmail.com"
+          <a href="mailto:mohammadazizramay@gmail.com"
           rel="noreferrer" target="_blank"
           className="button"><FontAwesomeIcon icon={faEnvelope} /> eMail</a>
         </li> */}

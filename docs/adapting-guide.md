@@ -1,6 +1,6 @@
 # Adapting this Website
 
-Many people have contacted me about adapting this website. I have tried to make things as simple as possible. There are still bugs. I am sorry. If you find a bug, please email me (help@hassanmunir.me), submit a pull request (I'll buy you a coffee as a thank you), or submit an issue.
+Many people have contacted me about adapting this website. I have tried to make things as simple as possible. There are still bugs. I am sorry. If you find a bug, please email me (help@mohammadazizramay), submit a pull request (I'll buy you a coffee as a thank you), or submit an issue.
 
 You may wish to fork this repository or remove my remote origin and add your own. Go [here](https://help.github.com/articles/changing-a-remote-s-url/) for more information on how to change remotes.
 
@@ -13,8 +13,8 @@ You may wish to fork this repository or remove my remote origin and add your own
 
 ### Setup
 
-1. Run the project before making any modifications by following the set up and running instructions in the main [README.md](https://github.com/hsnmnr/hsnmnr-site#set-up).
-1. Change `homepage` in `package.json` to reflect where you plan to host the site. This is important for static exporting via react-snap. This also changes your path when developing locally. For example, a homepage of `hassanmunir.me` places the site at `localhost:3000` and a homepage of `https://hsnmnr.github.io/hsnmnr-site/` places the site at `localhost:3000/hsnmnr-site/`. If you plan to host at on a path such as `https://[your-github-username].github.io/[your-repo-name]`, you should set this now so that your development environment mirrors your production environment.
+1. Run the project before making any modifications by following the set up and running instructions in the main [README.md](https://github.com/mohdzez/portfolio#set-up).
+1. Change `homepage` in `package.json` to reflect where you plan to host the site. This is important for static exporting via react-snap. This also changes your path when developing locally. For example, a homepage of `mohammadazizramay` places the site at `localhost:3000` and a homepage of `https://mohdzez.github.io/portfolio/` places the site at `localhost:3000/portfolio/`. If you plan to host at on a path such as `https://[your-github-username].github.io/[your-repo-name]`, you should set this now so that your development environment mirrors your production environment.
 1. Create a `.env` file. To do this, run:
 
     ```bash
@@ -32,12 +32,12 @@ I recommend keeping the project running as you go (with `npm start`) to help cor
 1. Modify the text on the homepage. This file is located at `src/pages/Index.js`.
 1. Modify the files in `src/data/resume/` next.
 1. Modify all of the other files in the `src/data/` directory.
-1. You've finished modifying >95% of the pages. Search through the rest of the files for references to `Hassan` or `Angelo` and change values to your name.
+1. You've finished modifying >95% of the pages. Search through the rest of the files for references to `Mohammad` or `Angelo` and change values to your name.
 1. Change or remove the favicon in `public/index.html`. [This](https://realfavicongenerator.net/) website may be helpful.
 
 ### Deploy
 
-See deployment instructions [here](https://github.com/hsnmnr/hsnmnr-site#deploying-to-github-pages). If you plan to use a custom url, modify `public/CNAME` and enter your URL. You can run:
+See deployment instructions [here](https://github.com/mohdzez/portfolio#deploying-to-github-pages). If you plan to use a custom url, modify `public/CNAME` and enter your URL. You can run:
 
 ```bash
 echo "[your-custom-domain][.com]" > public/CNAME
@@ -59,11 +59,11 @@ Here are answers to questions I've been asked at least twice. I've attempted to 
 
 1. My CSS isn't rendering, or I see a 404 instead of my site:
 
-    Make sure the `homepage` field of `package.json` points to where you plan to host your site index. Also, double check that you created a `CNAME` file (see deployment instructions above). If neither of these work, please open an issue or send me an [email](mailto:help@hassanmunir.me).
+    Make sure the `homepage` field of `package.json` points to where you plan to host your site index. Also, double check that you created a `CNAME` file (see deployment instructions above). If neither of these work, please open an issue or send me an [email](mailto:help@mohammadazizramay).
 
 2. LF / CRLF issues with eslint.
 
-    This is a common Windows development pitfall. See @[FrozenFury](https://github.com/FrozenFury)'s [comment](https://github.com/hsnmnr/hsnmnr-site/issues/263#issuecomment-759216299) for how to update your eslint config to resolve this issue.
+    This is a common Windows development pitfall. See @[FrozenFury](https://github.com/FrozenFury)'s [comment](https://github.com/mohdzez/portfolio/issues/263#issuecomment-759216299) for how to update your eslint config to resolve this issue.
 
 3. master / main
 

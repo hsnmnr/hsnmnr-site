@@ -13,15 +13,15 @@ const SideBar = () => (
       </Link>
       <header>
         <Link to="/">
-          <h2>Hassan Munir</h2>
+          <h2>Mohammad Aziz</h2>
         </Link>
-        <p><a href="mailto:hassanmunir.me@gmail.com">hassanmunir.me@gmail.com</a></p>
+        <p><a href="mailto:mohammadazizramay@gmail.com">mohammadazizramay@gmail.com</a></p>
       </header>
     </section>
 
     <section className="blurb">
       <h2>About</h2>
-      <p>Hi, I&apos;m Hassan. A code-blooded Computer
+      <p>Hi, I&apos;m Mohammad. A code-blooded Computer
         Scientist, <a href="https://skillcrush.com/blog/front-end-back-end-full-stack/" rel="noreferrer" target="_blank">Full Stack Engineer</a>,
         and Alumni of <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
         I live in <a href="https://en.wikipedia.org/wiki/Lahore" rel="noreferrer" target="_blank">Lahore - the city of gardens</a>.
@@ -43,7 +43,7 @@ const SideBar = () => (
 
     <section id="footer">
       <ContactIcons />
-      <p className="copyright">&copy; Hassan Munir <Link to="/">hassanmunir.me</Link>.</p>
+      <p className="copyright">&copy; Mohammad Aziz <Link to="/">mohammadazizramay</Link>.</p>
     </section>
   </section>
 );

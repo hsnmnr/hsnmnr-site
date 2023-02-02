@@ -8,16 +8,16 @@ import Main from '../layouts/Main';
 
 const Index = () => (
   <Main
-    description={"Hassan Munir's personal website. Lahore based Full-Stack developer."}
+    description={"Mohammad Aziz's personal website. Lahore based Full-Stack developer."}
   >
     <article className="post" id="index">
       <header>
         <div className="title">
           <h2 data-testid="heading"><Link to="/">Who Am I?</Link></h2>
           <p>
-            I am a full-stack web developer with a passion for building smart and
-            easy-to-use applications. I am a perfectionist with a sense of detail
-            and ensure quality and high professionalism in everything I do. One word - programmer.
+            I am a computer scientist. I have a knack for problem solving.
+            I am a hard-working and driven individual who isn&apos;t afraid to face a challenge.
+            I&apos;m passionate about my work and I know how to get the job done.
           </p>
         </div>
       </header>
@@ -67,16 +67,16 @@ const Index = () => (
           <Link to="/Projects" className="button">Projects</Link>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/hsnmnr" rel="noreferrer" target="_blank" className="button">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/mohdzez" rel="noreferrer" target="_blank" className="button">LinkedIn</a>
         </li>
         <li>
-          <a href="https://www.github.com/hsnmnr" rel="noreferrer" target="_blank" className="button">Github</a>
+          <a href="https://www.github.com/mohdzez" rel="noreferrer" target="_blank" className="button">Github</a>
         </li>
         <li>
           <Link to="/contact" className="button">Contact</Link>
         </li>
       </ul>
-      {/* <p> Source available <a href="https://github.com/hsnmnr/" rel="noreferrer" target="_blank">here</a>.</p> */}
+      {/* <p> Source available <a href="https://github.com/mohdzez/" rel="noreferrer" target="_blank">here</a>.</p> */}
     </article>
   </Main>
 );

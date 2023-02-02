@@ -21,7 +21,7 @@ const data = [
   {
     title: 'Crwn Cloting - Frontend (React)',
     subtitle: 'Ecommerce Store',
-    link: 'https://github.com/hsnmnr/crwn-clothing',
+    link: 'https://github.com/mohdzez/crwn-clothing',
     image: '/images/projects/crwnclothing3.PNG',
     date: '2019-07-20',
     desc:
@@ -30,7 +30,7 @@ const data = [
   {
     title: 'E Store - Full-Stack (PHP)',
     subtitle: '2018 Semester Project',
-    link: 'https://github.com/hsnmnr/Estore',
+    link: 'https://github.com/mohdzez/Estore',
     image: '/images/projects/estore.png',
     date: '2018-11-20',
     desc:
@@ -49,7 +49,7 @@ const data = [
   {
     title: 'Monsters Rolodex - Frontend (React)',
     subtitle: 'A simple react frontend application',
-    link: 'https://hsnmnr.github.io/monsters-rolodex/',
+    link: 'https://mohdzez.github.io/monsters-rolodex/',
     image: '/images/projects/monstersrolodex.PNG',
     date: '2018-05-15',
     desc:

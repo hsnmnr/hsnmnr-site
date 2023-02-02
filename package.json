@@ -1,11 +1,11 @@
 {
-  "name": "hsnmnr-site",
+  "name": "portfolio",
   "version": "3.0.1",
-  "homepage": "https://hassanmunir.me/",
+  "homepage": "https://mohdzez.github.io/portfolio/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hsnmnr/hsnmnr-site.git"
+    "url": "https://github.com/mohdzez/portfolio.git"
   },
   "scripts": {
     "build": "rimraf ./build && react-scripts build",
