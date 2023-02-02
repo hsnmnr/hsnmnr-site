@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, {
   Suspense, lazy,
 } from 'react';
