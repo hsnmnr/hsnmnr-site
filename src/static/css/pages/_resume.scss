@@ -126,6 +126,8 @@
 
 .holds-the-iframe {
 	background:url('./loading.gif') center center no-repeat;
+	width: 100%;
+	height: 95vh;
 }
 
 @include breakpoint(small) {
@@ -134,5 +136,8 @@
 	}
 	.course-container a{
 		display: block;
+	}
+	.holds-the-iframe {
+		height: 60vh;
 	}
 }
