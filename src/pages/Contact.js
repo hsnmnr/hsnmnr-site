@@ -35,8 +35,8 @@ const Contact = () => (
           <FontAwesomeIcon icon={faEnvelope} /> hassanmunir.me@gmail.com
         </a>
         <br />
-        <a href=" http://maps.google.com/?q=Lahore, Pakistan" rel="noreferrer" target="_blank">
-          <FontAwesomeIcon icon={faMapMarkerAlt} /> Lahore, Pakistan
+        <a href=" http://maps.google.com/?q=Islamabad, Pakistan" rel="noreferrer" target="_blank">
+          <FontAwesomeIcon icon={faMapMarkerAlt} /> Islamabad, Pakistan
         </a>
       </div>
       Or check me at
