@@ -31,8 +31,8 @@ const Contact = () => (
           <FontAwesomeIcon icon={faPhone} /> (+92) 307 0401940
         </a>
         <br />
-        <a href="mailto:contact@hassanmunir.me" rel="noreferrer" target="_blank">
-          <FontAwesomeIcon icon={faEnvelope} /> contact@hassanmunir.me
+        <a href="mailto:connect@hassanmunir.me" rel="noreferrer" target="_blank">
+          <FontAwesomeIcon icon={faEnvelope} /> connect@hassanmunir.me
         </a>
         <br />
         <a href=" http://maps.google.com/?q=Islamabad, Pakistan" rel="noreferrer" target="_blank">
@@ -50,7 +50,7 @@ const Contact = () => (
           <a href="https://www.github.com/hsnmnr" rel="noreferrer" target="_blank" className="button"><FontAwesomeIcon icon={faGithub} /> Github</a>
         </li>
         {/* <li>
-          <a href="mailto:contact@hassanmunir.me"
+          <a href="mailto:connect@hassanmunir.me"
           rel="noreferrer" target="_blank"
           className="button"><FontAwesomeIcon icon={faEnvelope} /> eMail</a>
         </li> */}

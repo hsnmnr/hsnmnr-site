@@ -40,7 +40,7 @@ const data = [
   //   icon: faTwitter,
   // },
   {
-    link: 'mailto:contact@hassanmunir.me',
+    link: 'mailto:connect@hassanmunir.me',
     label: 'Email',
     icon: faEnvelope,
   },
