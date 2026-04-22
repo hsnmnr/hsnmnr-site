@@ -12,7 +12,7 @@ At Xenia, I've reduced AWS RDS CPU utilization by ~50%, architected a real-time 
 AI is embedded in my engineering workflow, not bolted on as an afterthought. I work in an AI-native development environment where AI agents are part of how I design, build, and ship:
 
 - **Parallel development across tickets:** I run multiple AI agents in parallel using git worktrees, moving backend, API, and testing work forward simultaneously instead of sequentially.
-- **MCP-based system context:** I've built custom MCP integrations with GitHub, databases (read-only), and observability tools like Datadog — giving AI agents real system context for debugging and system understanding, without risking production state changes.
+- **MCP-based system context:** I've set up MCP integrations with GitHub, databases (read-only), and observability tools like Datadog — giving AI agents real system context for debugging and system understanding, without risking production state changes.
 - **Custom AI skills and agents:** I've configured reusable AI skills and agents that help scaffold, start, and ship tickets across multiple repositories while staying aligned with internal patterns and maintaining consistency.
 
 The result is an engineering workflow where I focus on architecture, correctness, and system design — while AI agents handle implementation velocity. I treat AI as a force multiplier for engineering, not a replacement for engineering judgment.
