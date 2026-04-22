@@ -1,82 +1,65 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-
 import Main from '../layouts/Main';
 
 const Index = () => (
   <Main
-    description={"Hassan Munir's personal website. Islamabad based Full-Stack developer."}
+    description="Hassan Munir — Senior Software Engineer building scalable backend systems, real-time analytics pipelines, and high-reliability services with Node.js, TypeScript, and AWS."
   >
     <article className="post" id="index">
       <header>
         <div className="title">
-          <h2 data-testid="heading"><Link to="/">Who Am I?</Link></h2>
+          <h2 data-testid="heading"><Link to="/">Senior Software Engineer</Link></h2>
           <p>
-            I am a full-stack web developer with a passion for building smart and
-            easy-to-use applications. I am a perfectionist with a sense of detail
-            and ensure quality and high professionalism in everything I do. One word – programmer.
+            Building scalable systems that earn trust in production.
           </p>
         </div>
       </header>
-      <p> Languages and Technologies I use:
-        <br />
-        <FontAwesomeIcon icon={faPlus} /> Frontend
-        <p className="technologies">
-          JavaScript, TypeScript, React, Next.js, Hooks, Redux
-        </p>
-        <br />
-        <FontAwesomeIcon icon={faPlus} /> Backend
-        <p className="technologies">
-          Node.js, Express.js, Rest, GraphQL
-        </p>
-        <br />
-        <FontAwesomeIcon icon={faPlus} /> Databases
-        <p className="technologies">
-          MongoDB, Firebase Firestore, Oracle, MySQL
-        </p>
-        <br />
-        <FontAwesomeIcon icon={faPlus} /> Design
-        <p className="technologies">
-          Sass, Ant Design, Material-UI
-        </p>
-        <br />
-        <FontAwesomeIcon icon={faPlus} /> Others
-        <p className="technologies">
-          Game Development, Android Application Development, Python
-        </p>
-        <br />
-        <FontAwesomeIcon icon={faPlus} /> Tools
-        <p className="technologies">
-          VS Code, GitHub, GitLab, Git, Slack, Trello,
-          Postman, Unity3D, Android Studio
-        </p>
-      </p>
-      <br />
       <p>
-        <h2>Want to know more?</h2>
-        Check out my
+        I&apos;m a Senior Software Engineer with 5+ years of experience designing scalable APIs,
+        platform capabilities, and distributed systems. Currently driving backend architecture
+        at <a href="https://www.xenia.team" rel="noreferrer" target="_blank">Xenia</a>,
+        where I build real-time analytics pipelines, optimize infrastructure performance, and own
+        the release and deployment lifecycle for a platform serving thousands of deskless workers.
+      </p>
+      <p>
+        My focus is on reliability, performance, and clean architecture.
+        I build systems that adapt seamlessly as they scale — from migrating
+        databases and re-architecting monoliths to microservices, to reducing
+        cloud costs by 50%+ through query optimization.
+      </p>
+      <h3>What I Deliver</h3>
+      <ul>
+        <li>Scalable backend services and APIs for high availability</li>
+        <li>Real-time data pipelines and analytics for low-latency reporting</li>
+        <li>Production reliability through monitoring, incident response, and CI/CD ownership</li>
+        <li>Architecture decisions that balance performance with long-term maintainability</li>
+      </ul>
+      <h3>Core Stack</h3>
+      <p>
+        <strong>Backend:</strong> Node.js, TypeScript, NestJS, Express, GraphQL
+        <br />
+        <strong>Databases:</strong> PostgreSQL, Redis, ClickHouse, MongoDB
+        <br />
+        <strong>Cloud & DevOps:</strong> AWS, Docker, CI/CD, GitHub Actions
+        <br />
+        <strong>Architecture:</strong> Microservices, Event-Driven, BullMQ, Redis Pub/Sub
       </p>
       <ul className="actions">
         <li>
           <Link to="/resume" className="button">Resume</Link>
         </li>
         <li>
-          <Link to="/Projects" className="button">Projects</Link>
+          <Link to="/projects" className="button">Projects</Link>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/hsnmnr" rel="noreferrer" target="_blank" className="button">LinkedIn</a>
         </li>
         <li>
-          <a href="https://www.github.com/hsnmnr" rel="noreferrer" target="_blank" className="button">Github</a>
-        </li>
-        <li>
-          <Link to="/contact" className="button">Contact</Link>
+          <Link to="/contact" className="button">Get in Touch</Link>
         </li>
       </ul>
-      {/* <p> Source available <a href="https://github.com/hsnmnr/" rel="noreferrer" target="_blank">here</a>.</p> */}
     </article>
   </Main>
 );

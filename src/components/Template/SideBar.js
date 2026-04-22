@@ -21,18 +21,12 @@ const SideBar = () => (
 
     <section className="blurb">
       <h2>About</h2>
-      <p>Hi, I&apos;m Hassan. A code-blooded Computer
-        Scientist, <a href="https://skillcrush.com/blog/front-end-back-end-full-stack/" rel="noreferrer" target="_blank">Full Stack Engineer</a>,
-        and Alumni of <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
-        I live in <a href="https://en.wikipedia.org/wiki/Islamabad" rel="noreferrer" target="_blank">Islamabad - the city of mountains</a>.
-        I enjoy learning and creating new things.
-        I&apos;m passionate
-        about <a href="https://javascript.info/intro" rel="noreferrer" target="_blank">JavaScript</a>
-        , <a href="https://medium.com/engineered-publicis-sapient/javascript-es6-es7-es10-where-are-we-8ac044dfd964" rel="noreferrer" target="_blank">ECMAScript</a>
-        , <a href="https://reactjs.org/" rel="noreferrer" target="_blank">ReactJS</a>
-        , <a href="https://nodejs.org/en/about/" rel="noreferrer" target="_blank">NodeJS</a>
-        , <a href="https://www.mongodb.com/why-use-mongodb" rel="noreferrer" target="_blank">MongoDB</a>
-        , and <a href="https://dev.to/andrewbaisden/modern-full-stack-developer-tech-stack-2021-49ij" rel="noreferrer" target="_blank">Latest Technologies</a>.
+      <p>Hi, I&apos;m Hassan. Senior Software Engineer
+        at <a href="https://www.xenia.team" rel="noreferrer" target="_blank">Xenia</a>,
+        building scalable backend systems and real-time analytics pipelines.
+        5+ years of experience with Node.js, TypeScript, PostgreSQL, and AWS.
+        Alumni of <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
+        Based in <a href="https://en.wikipedia.org/wiki/Islamabad" rel="noreferrer" target="_blank">Islamabad, Pakistan</a>.
       </p>
       <ul className="actions">
         <li>
