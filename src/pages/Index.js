@@ -39,11 +39,15 @@ const Index = () => (
         <li>Scalable backend services and APIs for high availability</li>
         <li>Real-time data pipelines and analytics for low-latency reporting</li>
         <li>Production reliability through monitoring, incident response, and CI/CD ownership</li>
-        <li>Architecture decisions that balance performance
-          with long-term maintainability</li>
-        <li>AI-augmented development workflows — parallel
+        <li>
+          Architecture decisions that balance performance
+          with long-term maintainability
+        </li>
+        <li>
+          AI-augmented development workflows — parallel
           agents, custom MCP servers, and agentic automation
-          for engineering velocity</li>
+          for engineering velocity
+        </li>
       </ul>
       <h3>Technical Skills</h3>
       <p>
