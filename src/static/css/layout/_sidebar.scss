@@ -23,6 +23,16 @@
 			padding-top: 0;
 		}
 
+		.sidebar-btn {
+			box-shadow: inset 0 0 0 1px _palette(accent);
+			color: _palette(accent) !important;
+
+			&:hover {
+				background-color: _palette(accent);
+				color: #fff !important;
+			}
+		}
+
 		@include breakpoint(large) {
 			border-top: solid 1px _palette(border);
 			margin: _size(section-spacing) 0 0 0;

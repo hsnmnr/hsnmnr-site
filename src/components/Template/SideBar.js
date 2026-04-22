@@ -30,7 +30,10 @@ const SideBar = () => (
       </p>
       <ul className="actions">
         <li>
-          <Link to="/resume" className="button">Resume</Link>
+          <Link to="/about" className="button sidebar-btn">About</Link>
+        </li>
+        <li>
+          <Link to="/resume" className="button sidebar-btn">Resume</Link>
         </li>
       </ul>
     </section>
