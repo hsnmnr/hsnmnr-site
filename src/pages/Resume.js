@@ -11,7 +11,7 @@ import Courses from '../components/Resume/Courses';
 import courses from '../data/resume/courses';
 import degrees from '../data/resume/degrees';
 import positions from '../data/resume/positions';
-import { skills, categories } from '../data/resume/skills';
+import skills from '../data/resume/skills';
 
 const sections = [
   'Education',
@@ -38,9 +38,20 @@ const Resume = () => (
         </div>
       </header>
 
+      <div style={{ marginBottom: '1.5em' }}>
+        <a
+          href="https://docs.google.com/document/d/1zqckd1SbzqPDuv40RCmWvGKU3YUj3b-zl-wluRijNtY/export?format=pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="button"
+        >
+          Download PDF Resume
+        </a>
+      </div>
+
       <Education data={degrees} />
       <Experience data={positions} />
-      <Skills skills={skills} categories={categories} />
+      <Skills skills={skills} />
       <Courses data={courses} />
 
     </article>

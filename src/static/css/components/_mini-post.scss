@@ -9,35 +9,34 @@
   position: relative;
 
   .description {
-    position: absolute;
-    padding: 0;
-    bottom: 0;
-    border-top: solid 1px _palette(border);
-    background-color: rgba(255,255,255,0.5);
+    padding: 0 1.25em 1.25em;
 
     p {
       font-size: 0.9rem;
-      margin: 0;
-      padding: 1.25em;
-      background-color: rgba(255,255,255,.7);
+      margin: 0 0 0.75em;
       color: #3c3b3b;
       font-family: "Raleway", Helvetica, sans-serif;
-      z-index: 1000;
-      transition: all 0.1s;
-      -webkit-transition: all 0.1s ease-in-out;
-    }
-
-    p:hover {
-      background-color: rgba(255,255,255,1);
+      line-height: 1.6;
     }
   }
-  
-  @media (max-width: 480px) {
-    .description {
-      position: inherit;
-      padding: 0;
-      bottom: inherit;
-    }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+  }
+
+  .project-tech-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-family: "Raleway", Helvetica, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.25em 0.6em;
+    border: solid 1px _palette(border);
+    border-radius: 3px;
+    color: _palette(fg);
   }
 }
 

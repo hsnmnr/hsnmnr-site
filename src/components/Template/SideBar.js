@@ -26,7 +26,7 @@ const SideBar = () => (
         building scalable backend systems and real-time analytics pipelines.
         5+ years of experience with Node.js, TypeScript, PostgreSQL, and AWS.
         Alumni of <a href="https://itu.edu.pk/" rel="noreferrer" target="_blank">Information Technology University</a>.
-        Based in <a href="https://en.wikipedia.org/wiki/Islamabad" rel="noreferrer" target="_blank">Islamabad, Pakistan</a>.
+        Based in <a href="https://en.wikipedia.org/wiki/Lahore" rel="noreferrer" target="_blank">Lahore, Pakistan</a>.
       </p>
       <ul className="actions">
         <li>
