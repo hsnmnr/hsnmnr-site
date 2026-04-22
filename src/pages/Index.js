@@ -17,11 +17,16 @@ const Index = () => (
         </div>
       </header>
       <p>
-        I&apos;m a Senior Software Engineer with 5+ years of experience designing scalable APIs,
-        platform capabilities, and distributed systems. Currently driving backend architecture
-        at <a href="https://www.xenia.team" rel="noreferrer" target="_blank">Xenia</a>,
-        where I build real-time analytics pipelines, optimize infrastructure performance, and own
-        the release and deployment lifecycle for a platform serving thousands of deskless workers.
+        I&apos;m a Senior Software Engineer with 5+ years of
+        experience designing scalable APIs, platform capabilities,
+        and distributed systems. Currently driving backend
+        architecture at <a href="https://www.xenia.team" rel="noreferrer" target="_blank">Xenia</a>,
+        where I build real-time analytics pipelines, optimize
+        infrastructure performance, and own the release lifecycle
+        for a platform serving thousands of deskless workers.
+        I work in an AI-native engineering workflow — using
+        agentic coding, custom MCP integrations, and parallel
+        AI agents to ship faster without compromising quality.
       </p>
       <p>
         My focus is on reliability, performance, and clean architecture.
@@ -34,7 +39,11 @@ const Index = () => (
         <li>Scalable backend services and APIs for high availability</li>
         <li>Real-time data pipelines and analytics for low-latency reporting</li>
         <li>Production reliability through monitoring, incident response, and CI/CD ownership</li>
-        <li>Architecture decisions that balance performance with long-term maintainability</li>
+        <li>Architecture decisions that balance performance
+          with long-term maintainability</li>
+        <li>AI-augmented development workflows — parallel
+          agents, custom MCP servers, and agentic automation
+          for engineering velocity</li>
       </ul>
       <h3>Technical Skills</h3>
       <p>
@@ -60,6 +69,10 @@ const Index = () => (
         <br />
         <strong>Monitoring:</strong> AWS CloudWatch, Sentry,
         Logging &amp; Observability, Health Checks
+        <br />
+        <strong>AI-Augmented Development:</strong> Agentic
+        Coding Workflows, Custom MCP Servers,
+        Parallel AI Agents, Specification-Driven Development
         <br />
         <strong>Practices:</strong> CI/CD, TDD, Agile/Scrum,
         Code Review, Performance Optimization, System Design

@@ -26,6 +26,13 @@ const skills = {
     'AWS CloudWatch', 'Sentry',
     'Logging & Observability', 'Health Checks',
   ],
+  'AI-Augmented Development': [
+    'Agentic Coding Workflows',
+    'Custom MCP Servers',
+    'Parallel AI Agents (Worktrees)',
+    'AI-Integrated Debugging & Observability',
+    'Specification-Driven Development',
+  ],
   Practices: [
     'CI/CD', 'TDD', 'Agile/Scrum', 'Code Review',
     'Performance Optimization', 'System Design',
