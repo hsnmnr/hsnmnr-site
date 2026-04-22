@@ -36,15 +36,33 @@ const Index = () => (
         <li>Production reliability through monitoring, incident response, and CI/CD ownership</li>
         <li>Architecture decisions that balance performance with long-term maintainability</li>
       </ul>
-      <h3>Core Stack</h3>
+      <h3>Technical Skills</h3>
       <p>
-        <strong>Backend:</strong> Node.js, TypeScript, NestJS, Express, GraphQL
+        <strong>Languages:</strong> JavaScript, TypeScript,
+        Python, SQL, Bash
         <br />
-        <strong>Databases:</strong> PostgreSQL, Redis, ClickHouse, MongoDB
+        <strong>Backend:</strong> Node.js, NestJS, Express.js,
+        GraphQL, REST APIs, BullMQ
         <br />
-        <strong>Cloud & DevOps:</strong> AWS, Docker, CI/CD, GitHub Actions
+        <strong>Cloud/DevOps:</strong> AWS (EC2, RDS, S3,
+        Lambda, SQS, CloudWatch), Azure, Docker,
+        CI/CD, GitHub Actions
         <br />
-        <strong>Architecture:</strong> Microservices, Event-Driven, BullMQ, Redis Pub/Sub
+        <strong>Databases:</strong> PostgreSQL, MongoDB, Redis,
+        ClickHouse, TypeORM, Mongoose
+        <br />
+        <strong>Messaging:</strong> Redis Pub/Sub, BullMQ,
+        AWS SQS, Change Data Capture (CDC)
+        <br />
+        <strong>Architecture:</strong> Microservices,
+        Event-Driven Architecture, Domain-Driven Design,
+        Serverless
+        <br />
+        <strong>Monitoring:</strong> AWS CloudWatch, Sentry,
+        Logging &amp; Observability, Health Checks
+        <br />
+        <strong>Practices:</strong> CI/CD, TDD, Agile/Scrum,
+        Code Review, Performance Optimization, System Design
       </p>
       <ul className="actions">
         <li>
