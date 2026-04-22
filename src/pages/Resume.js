@@ -33,7 +33,7 @@ const Resume = () => (
               <Link to="resume">Resume</Link>
             </h2>
             <a
-              href="https://docs.google.com/document/d/1zqckd1SbzqPDuv40RCmWvGKU3YUj3b-zl-wluRijNtY/export?format=pdf"
+              href="https://docs.google.com/document/d/1IDjj6ZtoX431WaR4M1uyAIyuVW4a85uJX6M7RNAc2Bk/export?format=pdf"
               target="_blank"
               rel="noreferrer"
               className="button resume-pdf-btn"
