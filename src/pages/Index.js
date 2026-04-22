@@ -25,14 +25,17 @@ const Index = () => (
         infrastructure performance, and own the release lifecycle
         for a platform serving thousands of deskless workers.
         I work in an AI-native engineering workflow — using
-        agentic coding, custom MCP integrations, and parallel
+        agentic coding, MCP integrations, and parallel
         AI agents to ship faster without compromising quality.
       </p>
       <p>
-        My focus is on reliability, performance, and clean architecture.
-        I build systems that adapt seamlessly as they scale — from migrating
-        databases and re-architecting monoliths to microservices, to reducing
-        cloud costs by 50%+ through query optimization.
+        My focus is on reliability, performance, and clean
+        architecture. I build systems that adapt seamlessly
+        as they scale — from migrating databases and
+        re-architecting monoliths to microservices, to
+        reducing cloud costs by 50%+ through query
+        optimization. AI is part of how I design, build,
+        and ship — not just a coding assistant.
       </p>
       <h3>What I Deliver</h3>
       <ul>
@@ -45,7 +48,7 @@ const Index = () => (
         </li>
         <li>
           AI-augmented development workflows — parallel
-          agents, custom MCP servers, and agentic automation
+          agents, MCP servers, and agentic automation
           for engineering velocity
         </li>
       </ul>
@@ -75,7 +78,7 @@ const Index = () => (
         Logging &amp; Observability, Health Checks
         <br />
         <strong>AI-Augmented Development:</strong> Agentic
-        Coding Workflows, Custom MCP Servers,
+        Coding Workflows, MCP Servers &amp; Integrations,
         Parallel AI Agents, Specification-Driven Development
         <br />
         <strong>Practices:</strong> CI/CD, TDD, Agile/Scrum,

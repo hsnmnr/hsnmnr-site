@@ -28,7 +28,7 @@ const skills = {
   ],
   'AI-Augmented Development': [
     'Agentic Coding Workflows',
-    'Custom MCP Servers',
+    'MCP Servers & Integrations',
     'Parallel AI Agents (Worktrees)',
     'AI-Integrated Debugging & Observability',
     'Specification-Driven Development',
