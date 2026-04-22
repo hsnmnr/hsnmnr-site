@@ -28,9 +28,19 @@ const Resume = () => (
     <article className="post" id="resume">
       <header>
         <div className="title">
-          <h2 data-testid="heading">
-            <Link to="resume">Resume</Link>
-          </h2>
+          <div className="resume-header-row">
+            <h2 data-testid="heading">
+              <Link to="resume">Resume</Link>
+            </h2>
+            <a
+              href="https://docs.google.com/document/d/1zqckd1SbzqPDuv40RCmWvGKU3YUj3b-zl-wluRijNtY/export?format=pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="button resume-pdf-btn"
+            >
+              Download PDF
+            </a>
+          </div>
           <div className="link-container">
             {sections.map((sec) => (
               <h4 key={sec}>
@@ -38,14 +48,6 @@ const Resume = () => (
               </h4>))}
           </div>
         </div>
-        <a
-          href="https://docs.google.com/document/d/1zqckd1SbzqPDuv40RCmWvGKU3YUj3b-zl-wluRijNtY/export?format=pdf"
-          target="_blank"
-          rel="noreferrer"
-          className="button resume-pdf-btn"
-        >
-          Download PDF
-        </a>
       </header>
 
       <Education data={degrees} />

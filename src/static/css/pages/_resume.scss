@@ -2,17 +2,23 @@
 
 #resume {
 
-	> header {
-		.resume-pdf-btn {
-			box-shadow: inset 0 0 0 1px _palette(accent);
-			color: _palette(accent) !important;
-			align-self: center;
-			margin-right: _size(section-spacing);
+	.resume-header-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
-			&:hover {
-				background-color: _palette(accent);
-				color: #fff !important;
-			}
+		h2 {
+			margin-bottom: 0;
+		}
+	}
+
+	.resume-pdf-btn {
+		box-shadow: inset 0 0 0 1px _palette(accent);
+		color: _palette(accent) !important;
+
+		&:hover {
+			background-color: _palette(accent);
+			color: #fff !important;
 		}
 	}
 
