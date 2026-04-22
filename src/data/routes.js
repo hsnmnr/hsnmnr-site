@@ -4,13 +4,13 @@ const routes = [
     label: 'Hassan Munir',
     path: '/',
   },
-  // {
-  //   label: 'About',
-  //   path: '/about',
-  // },
   {
     label: 'Home',
     path: '/',
+  },
+  {
+    label: 'About',
+    path: '/about',
   },
   {
     label: 'Resume',
@@ -20,10 +20,6 @@ const routes = [
     label: 'Projects',
     path: '/projects',
   },
-  // {
-  //   label: 'Stats',
-  //   path: '/stats',
-  // },
   {
     label: 'Contact',
     path: '/contact',
