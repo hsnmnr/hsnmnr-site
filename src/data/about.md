@@ -19,4 +19,4 @@ I hold a Bachelor of Science in Computer Science from [Information Technology Un
 
 # Beyond Code
 
-When I'm not engineering systems, I enjoy exploring new technologies, contributing to developer communities, and mentoring junior engineers. I'm based in Islamabad, Pakistan — the city of mountains.
+When I'm not engineering systems, I enjoy exploring new technologies, contributing to developer communities, and mentoring junior engineers. I'm based in Lahore, Pakistan.
