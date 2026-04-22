@@ -11,6 +11,7 @@ const positions = [
       'Led post-release monitoring and incident response: created incident playbooks, ran RCA sessions, and implemented recurring fixes to reduce MTTR.',
       'Drove engineering hiring: conducted technical interviews for backend, mobile, and AI roles, and supported onboarding to raise team capability.',
       'Partnered on architecture and long-term maintainability decisions to keep the platform performant and sustainable at scale.',
+      'Adopted AI-native engineering workflows: run parallel AI agents across git worktrees for concurrent ticket development, built custom MCP integrations with GitHub, databases, and Datadog for real-time system context, and configured reusable AI skills and agents for consistent delivery across repositories.',
     ],
   },
   {
