@@ -18,12 +18,11 @@ describe('Hero', () => {
     expect(heading).toHaveTextContent('Hassan Munir');
   });
 
-  it('renders the tagline with Xenia link', () => {
+  it('renders the tagline content', () => {
     render(<Hero />);
 
-    const xeniaLink = screen.getByRole('link', { name: /xenia/i });
-    expect(xeniaLink).toHaveAttribute('href', 'https://xeniaplatform.io');
-    expect(xeniaLink).toHaveClass('hero-highlight');
+    expect(screen.getByText(/Senior Software Engineer/i)).toBeInTheDocument();
+    expect(screen.getByText(/5\+ years/i)).toBeInTheDocument();
   });
 
   it('displays hero chips for credentials', () => {

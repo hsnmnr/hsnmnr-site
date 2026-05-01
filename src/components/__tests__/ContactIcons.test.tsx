@@ -7,7 +7,6 @@ describe('ContactIcons', () => {
   it('renders contact icons', () => {
     render(<ContactIcons />);
 
-    // Check if GitHub link is present
     const githubLink = screen.getByRole('link', { name: /github/i });
     expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute(
@@ -15,12 +14,11 @@ describe('ContactIcons', () => {
       expect.stringContaining('github.com'),
     );
 
-    // Check if email link is present
-    const emailLink = screen.getByRole('link', { name: /email/i });
-    expect(emailLink).toBeInTheDocument();
-    expect(emailLink).toHaveAttribute(
+    const linkedInLink = screen.getByRole('link', { name: /linkedin/i });
+    expect(linkedInLink).toBeInTheDocument();
+    expect(linkedInLink).toHaveAttribute(
       'href',
-      expect.stringContaining('mailto:'),
+      expect.stringContaining('linkedin.com'),
     );
   });
 

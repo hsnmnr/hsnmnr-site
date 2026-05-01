@@ -168,6 +168,37 @@ const skills: Skill[] = [
     competency: 4,
     category: ['Monitoring'],
   },
+  // AI / AI-Augmented Engineering
+  {
+    title: 'Claude Code',
+    competency: 5,
+    category: ['AI'],
+  },
+  {
+    title: 'Cursor',
+    competency: 5,
+    category: ['AI'],
+  },
+  {
+    title: 'Agentic Coding Workflows',
+    competency: 5,
+    category: ['AI'],
+  },
+  {
+    title: 'MCP',
+    competency: 4,
+    category: ['AI'],
+  },
+  {
+    title: 'Plugins & Custom Skills',
+    competency: 4,
+    category: ['AI'],
+  },
+  {
+    title: 'Parallel AI Agents',
+    competency: 4,
+    category: ['AI'],
+  },
 ].map((skill) => ({ ...skill, category: skill.category.sort() }));
 
 /**

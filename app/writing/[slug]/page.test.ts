@@ -10,8 +10,6 @@ describe('writing post metadata', () => {
       params: Promise.resolve({ slug: 'welcome' }),
     });
 
-    expect(metadata.openGraph?.url).toBe(
-      `${SITE_URL}/writing/welcome/`,
-    );
+    expect(metadata.openGraph?.url).toBe(`${SITE_URL}/writing/welcome/`);
   });
 });

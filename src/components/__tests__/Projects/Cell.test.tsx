@@ -1,16 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
+import type { Project } from '../../../data/projects';
 import Cell from '../../Projects/Cell';
 
 describe('Cell', () => {
-  const mockProject = {
+  const mockProject: Project = {
     title: 'Test Project',
     subtitle: 'A test subtitle',
     image: '/images/test.jpg',
     date: '2023-01-01',
     desc: 'This is a test project description',
     link: 'https://example.com',
+    category: 'professional',
   };
 
   it('renders project as a clickable card with link', () => {

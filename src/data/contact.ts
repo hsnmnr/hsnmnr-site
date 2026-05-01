@@ -1,11 +1,9 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faAngellist } from '@fortawesome/free-brands-svg-icons/faAngellist';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
+import { faDev } from '@fortawesome/free-brands-svg-icons/faDev';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
+import { faMedium } from '@fortawesome/free-brands-svg-icons/faMedium';
 
 export interface ContactItem {
   link: string;
@@ -21,37 +19,23 @@ const data: ContactItem[] = [
   },
   {
     link: 'https://github.com/hsnmnr',
-    label: 'Github',
+    label: 'GitHub',
     icon: faGithub,
   },
   {
-    // TODO: replace with real X/Twitter handle if Hassan has one
-    link: 'https://x.com/hassanmunir',
-    label: 'X',
-    icon: faTwitter,
+    link: 'https://dev.to/hsnmnr',
+    label: 'Dev.to',
+    icon: faDev,
   },
   {
-    // TODO: replace with real Angel List profile if Hassan has one
-    link: 'https://angel.co/hassanmunir',
-    label: 'Angel List',
-    icon: faAngellist,
+    link: 'https://medium.com/@hsnmnr',
+    label: 'Medium',
+    icon: faMedium,
   },
   {
-    // TODO: replace with real Instagram handle if Hassan has one
-    link: 'https://www.instagram.com/hassanmunir/',
+    link: 'https://www.instagram.com/hssnmnr/',
     label: 'Instagram',
     icon: faInstagram,
-  },
-  {
-    // TODO: replace with real Facebook profile if Hassan has one
-    link: 'https://facebook.com/hassanmunir',
-    label: 'Facebook',
-    icon: faFacebookF,
-  },
-  {
-    link: 'mailto:connect@hassanmunir.me',
-    label: 'Email',
-    icon: faEnvelope,
   },
 ];
 

@@ -5,8 +5,7 @@
 // Site configuration
 export const SITE_URL = 'https://hassanmunir.me';
 export const AUTHOR_NAME = 'Hassan Munir';
-// TODO: replace with real X/Twitter handle if Hassan has one
-export const TWITTER_HANDLE = '@hassanmunir';
+export const TWITTER_HANDLE = '';
 
 // Image dimension constants
 export const AVATAR_SIZE = {
