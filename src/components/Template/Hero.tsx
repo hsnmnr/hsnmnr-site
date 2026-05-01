@@ -15,15 +15,11 @@ export default function Hero() {
         </h1>
 
         <p className="hero-tagline">
-          Senior Software Engineer at{' '}
-          <a href="https://xeniaplatform.io" className="hero-highlight">
-            Xenia
-          </a>
-          , designing scalable APIs and distributed systems in Node.js and
-          TypeScript.
+          Senior Software Engineer with{' '}
+          <span className="hero-highlight">5+ years</span> building distributed
+          backends in Node.js and TypeScript across fintech and B2B SaaS.
           <br />
-          5+ years across fintech and B2B SaaS — backend architecture, real-time
-          analytics, and enterprise SSO.
+          AI-augmented, infrastructure-conscious, reliability-first.
         </p>
 
         <div className="hero-chips">

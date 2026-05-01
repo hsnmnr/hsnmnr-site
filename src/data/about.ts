@@ -1,58 +1,36 @@
 export const aboutMarkdown = `# Intro
 
-I'm a Senior Software Engineer with 5+ years of experience designing scalable APIs, platform capabilities, and distributed systems in Node.js and TypeScript. Today, I drive backend architecture at [Xenia](https://xeniaplatform.io), where I build real-time analytics pipelines using CDC and ClickHouse, ship enterprise SSO via WorkOS, and tune infrastructure — most recently cutting AWS RDS costs by ~50%.
+I'm Hassan — a Senior Software Engineer (AI-Augmented) at [Xenia](https://www.xenia.team), where I drive backend architecture for a B2B SaaS platform serving deskless workforces. I design scalable APIs and distributed systems in Node.js and TypeScript, with 5+ years across fintech and B2B SaaS.
 
-Before Xenia, I built event-driven microservices at AIO with NestJS and Redis Pub/Sub, shipped Shariah-compliant payment infrastructure at [KalPay Financials](https://kalpay.com) processing 5,000+ daily transactions, and grew from engineer to lead at Kcube AI. Across fintech and B2B SaaS, I've owned migrations to TypeScript and PostgreSQL, designed CDC-driven analytics, and shipped offline-first sync for deskless workers.
+# What I'm Building Now
 
-I care about software that's reliable under load, easy to operate, and cheap to run. I work end-to-end — from system design and data modeling through CI/CD, observability, and on-call. If you think I can be helpful to you, or you're interested in collaborating, [get in touch](/contact).
+At Xenia I lead end-to-end ownership of backend systems — from architecture and data modeling through CI/CD, observability, and on-call. Recent work:
 
-# Some History
+- **Real-time analytics on CDC + ClickHouse**, offloading 70% of read traffic from primary databases.
+- **Enterprise SSO via WorkOS** — SAML, Google OAuth, Azure AD — onboarded 10+ enterprise clients without authentication incidents.
+- **Offline-first mobile sync** for field operations in low-connectivity environments, cutting data loss by 90% across 10,000+ deskless workers.
+- **AWS infrastructure tuning** — reduced RDS CPU 50%, saving ~$3K/month.
 
-<!-- TODO: replace with real chronological highlights -->
+# AI-Native Engineering
 
-- TODO: when you first got a computer / first wrote code / first shipped something.
-- TODO: school years, side projects, formative experiences.
-- TODO: the moment you decided to be a software engineer.
-- TODO: any stories worth telling here.
+I work in an AI-augmented engineering style. I run [Claude Code](https://claude.com/claude-code) with custom skills, plugins, and parallel agents. I've established AI-native service documentation across our repositories that cuts new-engineer onboarding by 70% and uses these workflows to push sprint throughput 3×.
 
-# I Like
+I write about this on [Dev.to](https://dev.to/hsnmnr) and [Medium](https://medium.com/@hsnmnr).
 
-<!-- TODO: replace with real interests; placeholders below are guesses -->
+# Background
 
-- Reading systems-design papers and post-mortems.
-- Tinkering with self-hosted infra and home-lab setups.
-- Late-night refactors that delete more code than they add.
-- Coffee.
-- Open-source — using it and contributing back when I can.
-- TODO: hobbies outside engineering — sports, books, music, travel?
+Before Xenia, I built event-driven microservices at AIO (NestJS, Redis Pub/Sub, BullMQ), shipped Shariah-compliant payment infrastructure at KalPay Financials processing 5,000+ daily transactions, and grew from engineer to lead at Kcube AI.
 
-# Travel / Geography
+I studied Computer Science at [Information Technology University (ITU)](https://itu.edu.pk) in Lahore, where I'm based now and work remotely with US-based teams.
 
-- I live in Lahore, Pakistan, and work remotely with US-based teams.
-- TODO: places you've lived / cities that shaped you.
-- TODO: countries visited (year-by-year, like the original, or just a count).
+# How I Work
 
-# Fun Facts
+- **End-to-end ownership.** I prefer being responsible for the whole lifecycle — design, build, deploy, operate, iterate.
+- **Boring tech, sharp execution.** Postgres with the right indexes beats a clever distributed system most of the time.
+- **Cost-aware.** Infrastructure spend is real. Tuning queries, right-sizing services, and choosing the right tool can quietly save tens of thousands a year.
+- **AI-native.** Claude Code, Cursor, MCP, agentic patterns — daily drivers, not experiments.
 
-<!-- TODO: replace with real fun facts -->
+# Get in Touch
 
-- TODO: something most people don't know about you.
-- TODO: a quirky habit, collection, or skill.
-- TODO: a story you tell at parties.
-
-# I Dream Of
-
-<!-- TODO: aspirations / what drives you -->
-
-- Building software that quietly makes people's lives better.
-- Staying curious.
-- TODO: anything else?
-
-# Websites from People I Admire
-
-<!-- TODO: replace with friends / colleagues whose sites you want to link -->
-
-- TODO: list of links.
-
-If we are friends and you feel like you belong on this list, you're probably right. Reach out and I'll add you.
+If you think I can help with your project, or want to talk shop on backend architecture, fintech, distributed systems, or AI-native engineering — [reach out](/contact).
 `;

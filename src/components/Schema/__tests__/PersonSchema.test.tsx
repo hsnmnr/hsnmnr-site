@@ -83,7 +83,7 @@ describe('PersonSchema', () => {
     );
     const data = JSON.parse(script?.innerHTML || '{}');
 
-    expect(data.jobTitle).toBe('Senior Software Engineer');
+    expect(data.jobTitle).toBe('Senior Software Engineer — AI Augmented');
   });
 
   it('includes alumniOf schools', () => {
