@@ -5,15 +5,16 @@ export interface WritingItem {
   description: string;
 }
 
-// TODO: replace with Hassan's external writing (blog posts, talks, articles).
+// External writing (blog posts, talks, articles published elsewhere).
 // Internal markdown posts live in /content/writing/.
-const data: WritingItem[] = [
-  {
-    title: 'TODO: External Article 1',
-    url: 'https://hassanmunir.me',
-    date: '2024-01-01',
-    description: 'TODO: short description of the piece.',
-  },
-];
+//
+// To add an entry:
+//   {
+//     title: 'Article title',
+//     url: 'https://dev.to/hsnmnr/...',
+//     date: '2026-05-01',
+//     description: 'One-sentence summary shown on the writing page.',
+//   },
+const data: WritingItem[] = [];
 
 export default data;
