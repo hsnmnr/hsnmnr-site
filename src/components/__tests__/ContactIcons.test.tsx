@@ -23,10 +23,7 @@ describe('ContactIcons', () => {
 
     const calLink = screen.getByRole('link', { name: /book a meeting/i });
     expect(calLink).toBeInTheDocument();
-    expect(calLink).toHaveAttribute(
-      'href',
-      expect.stringContaining('cal.com'),
-    );
+    expect(calLink).toHaveAttribute('href', expect.stringContaining('cal.com'));
   });
 
   it('has correct number of contact links', () => {

@@ -10,6 +10,8 @@ describe('writing post metadata', () => {
       params: Promise.resolve({ slug: 'postgres-to-clickhouse-cdc' }),
     });
 
-    expect(metadata.openGraph?.url).toBe(`${SITE_URL}/writing/postgres-to-clickhouse-cdc/`);
+    expect(metadata.openGraph?.url).toBe(
+      `${SITE_URL}/writing/postgres-to-clickhouse-cdc/`,
+    );
   });
 });
