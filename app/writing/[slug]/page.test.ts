@@ -7,9 +7,9 @@ import { generateMetadata } from './page';
 describe('writing post metadata', () => {
   it('uses a trailing-slash canonical URL for posts', async () => {
     const metadata = await generateMetadata({
-      params: Promise.resolve({ slug: 'welcome' }),
+      params: Promise.resolve({ slug: 'postgres-to-clickhouse-cdc' }),
     });
 
-    expect(metadata.openGraph?.url).toBe(`${SITE_URL}/writing/welcome/`);
+    expect(metadata.openGraph?.url).toBe(`${SITE_URL}/writing/postgres-to-clickhouse-cdc/`);
   });
 });

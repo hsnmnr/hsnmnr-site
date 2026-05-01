@@ -10,7 +10,7 @@ describe('feed.xml route', () => {
     const xml = await response.text();
 
     expect(xml).toContain(`${SITE_URL}/writing/`);
-    expect(xml).toContain(`${SITE_URL}/writing/welcome/`);
+    expect(xml).toContain(`${SITE_URL}/writing/postgres-to-clickhouse-cdc/`);
   });
 
   it('keeps the feed self link file-like', async () => {
