@@ -87,8 +87,8 @@ clickhouse:
   image: clickhouse/clickhouse-server:25.7-alpine
   restart: always
   ports:
-    - "8123:8123"
-    - "9000:9000"
+    - '8123:8123'
+    - '9000:9000'
   volumes:
     - clickhouse-data:/var/lib/clickhouse
     - ./sql/clickhouse-init.sql:/docker-entrypoint-initdb.d/clickhouse-init.sql
@@ -321,18 +321,18 @@ ORDER BY (day, event);
 
 ## Capability comparison
 
-| | MaterializedPostgreSQL | Kafka + Debezium | ClickPipes |
-|---|---|---|---|
-| Storage in ClickHouse | Local replicated tables | Local, written by your sink | Local replicated tables |
-| Initial snapshot | Yes, then WAL tail | Yes, then WAL tail | Parallel snapshot, then WAL tail |
-| TOAST values | Not replicated; default written | Replicated | Replicated |
-| DDL on source | Breaks affected table; manual recovery | Schema registry handles compatibly | Most column changes propagate |
-| Destination engine choice | No (ReplacingMergeTree only) | Yes | Yes |
-| Column selection / transforms | No | Yes (in sink) | Yes |
-| Available on ClickHouse Cloud | No | Yes (any sink) | Yes |
-| Connection pooler support | Direct Postgres | Direct Postgres | Direct Postgres only (no PgBouncer txn) |
-| Status | Experimental | Stable | GA |
-| Operational cost | Low | High | Lowest of the three |
+|                               | MaterializedPostgreSQL                 | Kafka + Debezium                   | ClickPipes                              |
+| ----------------------------- | -------------------------------------- | ---------------------------------- | --------------------------------------- |
+| Storage in ClickHouse         | Local replicated tables                | Local, written by your sink        | Local replicated tables                 |
+| Initial snapshot              | Yes, then WAL tail                     | Yes, then WAL tail                 | Parallel snapshot, then WAL tail        |
+| TOAST values                  | Not replicated; default written        | Replicated                         | Replicated                              |
+| DDL on source                 | Breaks affected table; manual recovery | Schema registry handles compatibly | Most column changes propagate           |
+| Destination engine choice     | No (ReplacingMergeTree only)           | Yes                                | Yes                                     |
+| Column selection / transforms | No                                     | Yes (in sink)                      | Yes                                     |
+| Available on ClickHouse Cloud | No                                     | Yes (any sink)                     | Yes                                     |
+| Connection pooler support     | Direct Postgres                        | Direct Postgres                    | Direct Postgres only (no PgBouncer txn) |
+| Status                        | Experimental                           | Stable                             | GA                                      |
+| Operational cost              | Low                                    | High                               | Lowest of the three                     |
 
 ## When to pick which
 

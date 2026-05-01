@@ -2,8 +2,10 @@ import Markdown from 'markdown-to-jsx';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { isValidElement, type ReactElement, type ReactNode } from 'react';
 import { ArticleSchema } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
+import MermaidDiagram from '@/components/Writing/MermaidDiagram';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
 import { AUTHOR_NAME, formatDate, SITE_URL } from '@/lib/utils';
 
@@ -49,6 +51,31 @@ export async function generateMetadata({
   };
 }
 
+interface CodeChildProps {
+  className?: string;
+  children?: string;
+}
+
+/**
+ * Renders fenced code blocks. ```mermaid blocks are sent through MermaidDiagram
+ * (client-side render). Everything else falls through to the default <pre><code>.
+ */
+function PreOverride({
+  children,
+  ...rest
+}: {
+  children?: ReactNode;
+} & React.HTMLAttributes<HTMLPreElement>) {
+  if (isValidElement(children)) {
+    const codeChild = children as ReactElement<CodeChildProps>;
+    const className = codeChild.props.className ?? '';
+    if (/(?:^|\s)(?:lang|language)-mermaid(?:\s|$)/.test(className)) {
+      return <MermaidDiagram chart={codeChild.props.children ?? ''} />;
+    }
+  }
+  return <pre {...rest}>{children}</pre>;
+}
+
 export default async function PostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -72,6 +99,9 @@ export default async function PostPage({ params }: PageProps) {
           <Markdown
             options={{
               overrides: {
+                pre: {
+                  component: PreOverride,
+                },
                 img: {
                   component: ({ alt, src }: { alt?: string; src?: string }) => (
                     <Image
