@@ -14,11 +14,18 @@ describe('ContactIcons', () => {
       expect.stringContaining('github.com'),
     );
 
-    const linkedInLink = screen.getByRole('link', { name: /linkedin/i });
-    expect(linkedInLink).toBeInTheDocument();
-    expect(linkedInLink).toHaveAttribute(
+    const emailLink = screen.getByRole('link', { name: /email/i });
+    expect(emailLink).toBeInTheDocument();
+    expect(emailLink).toHaveAttribute(
       'href',
-      expect.stringContaining('linkedin.com'),
+      expect.stringContaining('mailto:'),
+    );
+
+    const calLink = screen.getByRole('link', { name: /book a meeting/i });
+    expect(calLink).toBeInTheDocument();
+    expect(calLink).toHaveAttribute(
+      'href',
+      expect.stringContaining('cal.com'),
     );
   });
 

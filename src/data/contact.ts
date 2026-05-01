@@ -4,6 +4,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
 import { faMedium } from '@fortawesome/free-brands-svg-icons/faMedium';
+import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons/faCalendarCheck';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 
 export interface ContactItem {
   link: string;
@@ -21,6 +23,16 @@ const data: ContactItem[] = [
     link: 'https://github.com/hsnmnr',
     label: 'GitHub',
     icon: faGithub,
+  },
+  {
+    link: 'mailto:connect@hassanmunir.me',
+    label: 'Email',
+    icon: faEnvelope,
+  },
+  {
+    link: 'https://cal.com/hassanmunir/book-a-meeting',
+    label: 'Book a meeting',
+    icon: faCalendarCheck,
   },
   {
     link: 'https://dev.to/hsnmnr',
