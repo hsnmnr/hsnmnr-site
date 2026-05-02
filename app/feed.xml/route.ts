@@ -65,6 +65,7 @@ export async function GET() {
     .join('');
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/feed.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hassan Munir - Writing</title>
@@ -78,7 +79,10 @@ export async function GET() {
 
   return new Response(rss, {
     headers: {
-      'Content-Type': 'application/rss+xml; charset=utf-8',
+      // Use `application/xml` rather than `application/rss+xml` so browsers
+      // apply the XSL stylesheet referenced in the RSS document. RSS readers
+      // accept both content types (they sniff the document, not the header).
+      'Content-Type': 'application/xml; charset=utf-8',
     },
   });
 }
