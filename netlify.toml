@@ -1,0 +1,11 @@
+# Netlify build configuration.
+# Keeping this in version control (instead of the Netlify dashboard) so build
+# settings are visible in PR review and stay in sync across branches.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  # Pin Node to a current LTS. Netlify's Agent Runners want 22+.
+  NODE_VERSION = "22"
