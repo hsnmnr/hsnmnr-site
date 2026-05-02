@@ -79,7 +79,10 @@ export async function GET() {
 
   return new Response(rss, {
     headers: {
-      'Content-Type': 'application/rss+xml; charset=utf-8',
+      // Use `application/xml` rather than `application/rss+xml` so browsers
+      // apply the XSL stylesheet referenced in the RSS document. RSS readers
+      // accept both content types (they sniff the document, not the header).
+      'Content-Type': 'application/xml; charset=utf-8',
     },
   });
 }
