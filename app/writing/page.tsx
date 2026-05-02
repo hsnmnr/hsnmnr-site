@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   ...createPageMetadata({
     title: 'Writing',
     description:
-      'Articles on AI security, LLM red teaming, and trust & safety.',
+      'Notes on backend engineering, distributed systems, and shipping software.',
     path: '/writing/',
   }),
   alternates: {
@@ -105,10 +105,10 @@ export default function WritingPage() {
             <a
               href="/feed.xml"
               className="writing-rss-link"
-              title="RSS Feed"
-              aria-label="RSS Feed"
+              title="Subscribe to new posts via RSS"
+              aria-label="Subscribe via RSS"
             >
-              RSS
+              Subscribe via RSS
             </a>
           </div>
         </header>
