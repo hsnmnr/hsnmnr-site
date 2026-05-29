@@ -6,14 +6,17 @@ import { createPageMetadata } from '@/lib/metadata';
 import { getAllPosts } from '@/lib/posts';
 import { formatDate } from '@/lib/utils';
 
+const baseMetadata = createPageMetadata({
+  title: 'Writing',
+  description:
+    'Notes on backend engineering, distributed systems, and shipping software.',
+  path: '/writing/',
+});
+
 export const metadata: Metadata = {
-  ...createPageMetadata({
-    title: 'Writing',
-    description:
-      'Notes on backend engineering, distributed systems, and shipping software.',
-    path: '/writing/',
-  }),
+  ...baseMetadata,
   alternates: {
+    ...baseMetadata.alternates,
     types: {
       'application/rss+xml': '/feed.xml',
     },

@@ -2,10 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = createPageMetadata({
-  title: 'Page Not Found',
-  description: 'The page you are looking for could not be found.',
-});
+export const metadata: Metadata = {
+  ...createPageMetadata({
+    title: 'Page Not Found',
+    description: 'The page you are looking for could not be found.',
+  }),
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (

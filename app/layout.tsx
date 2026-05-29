@@ -8,6 +8,9 @@ import ScrollToTop from '@/components/Template/ScrollToTop';
 import { AUTHOR_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/utils';
 import './tailwind.css';
 
+const twitterHandle = TWITTER_HANDLE.trim();
+const homepageTitle = `${AUTHOR_NAME} — Senior Software Engineer (Node.js, TypeScript)`;
+
 const sourceSans = Source_Sans_3({
   weight: ['400', '700'],
   subsets: ['latin'],
@@ -31,7 +34,7 @@ const siteDescription =
 
 export const metadata: Metadata = {
   title: {
-    default: AUTHOR_NAME,
+    default: homepageTitle,
     template: `%s | ${AUTHOR_NAME}`,
   },
   description: siteDescription,
@@ -50,12 +53,18 @@ export const metadata: Metadata = {
   authors: [{ name: AUTHOR_NAME }],
   creator: AUTHOR_NAME,
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     siteName: AUTHOR_NAME,
-    title: AUTHOR_NAME,
+    title: homepageTitle,
     description: siteDescription,
     images: [
       {
@@ -68,9 +77,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: TWITTER_HANDLE,
-    creator: TWITTER_HANDLE,
-    title: AUTHOR_NAME,
+    ...(twitterHandle ? { site: twitterHandle, creator: twitterHandle } : {}),
+    title: homepageTitle,
     description: siteDescription,
     images: ['/images/me.jpg'],
   },
