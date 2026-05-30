@@ -70,6 +70,13 @@ export function useCalEmbed(): UseCalEmbedReturn {
     themeRef.current = theme;
   }, [theme]);
 
+  // Initialize Cal exactly once per page. The `ui` config here is
+  // intentionally theme-agnostic — `cssVarsPerTheme` defines both light
+  // and dark brand colors up front, and theme itself is passed per-open
+  // (inline via <Cal>'s config + key={theme} remount, modal via
+  // api('modal', ...) config). Calling `cal('ui', { theme })` on every
+  // theme change re-applies Cal's namespace state and was causing a
+  // previously-opened modal to spontaneously re-open after toggling.
   useEffect(() => {
     let cancelled = false;
 
@@ -79,7 +86,6 @@ export function useCalEmbed(): UseCalEmbedReturn {
       apiRef.current = cal;
 
       cal('ui', {
-        theme,
         hideEventTypeDetails: false,
         layout: 'month_view',
         cssVarsPerTheme: {
@@ -92,7 +98,7 @@ export function useCalEmbed(): UseCalEmbedReturn {
     return () => {
       cancelled = true;
     };
-  }, [theme]);
+  }, []);
 
   const openModal = useCallback((calLink: string) => {
     const api = apiRef.current;
