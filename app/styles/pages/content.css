@@ -164,14 +164,22 @@
 }
 
 .contact-page {
-  max-width: 880px;
+  max-width: 1024px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   min-height: calc(100vh - var(--header-height) - 16rem);
   margin: 0 auto;
   padding: 2rem;
+}
+
+@media (max-width: 640px) {
+  .contact-page {
+    /* Tighter padding on phones so the Cal embed and icon row get the
+       full viewport width to work with. */
+    padding: 1rem 0.5rem;
+  }
 }
 
 .contact-header {
@@ -185,6 +193,7 @@
 
 .contact-content {
   text-align: center;
+  width: 100%;
 }
 
 /* Email CTA block */
@@ -198,8 +207,13 @@
 }
 
 .contact-email-link {
-  display: inline-flex;
-  align-items: baseline;
+  /* inline-block (not inline-flex) so the prefix + @domain spans flow
+     as continuous inline text. Inline-flex was making them separate
+     flex items, which caused the entire @domain to wrap to its own
+     line whenever the prefix got long. With inline-block, the long
+     hyphenated prefixes break at natural word boundaries (hyphens) and
+     @hassanmunir.me stays attached to the closest fragment. */
+  display: inline-block;
   padding: 0.75rem 1.5rem;
   font-size: var(--text-lg);
   font-weight: var(--font-weight-bold);
@@ -207,7 +221,8 @@
   background: var(--color-accent-light);
   border-radius: var(--radius-md);
   text-decoration: none;
-  white-space: nowrap;
+  max-width: 100%;
+  overflow-wrap: break-word;
   transition:
     background-color var(--duration-fast) var(--ease-out),
     transform var(--duration-fast) var(--ease-out),
@@ -249,6 +264,35 @@
   font-size: var(--text-sm);
   color: var(--color-fg-light);
   margin: 0;
+}
+
+/* Hint that sits below the "or book a meeting" divider. */
+.contact-booking-hint {
+  font-size: var(--text-sm);
+  color: var(--color-fg-light);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+/* Tighten the divider's bottom margin when a booking hint follows so
+   the hint reads as part of the divider group, not a free-floating line. */
+.contact-divider:has(+ .contact-booking-hint) {
+  margin-bottom: 0.5rem;
+}
+
+/* Booking embed — sits between two .contact-divider rows ("or book a
+   meeting" above, "or find me on" below). No fixed height: Cal
+   auto-resizes the iframe via postMessage and the container matches.
+   `min-height` is a loading skeleton only; once Cal reports its size,
+   the container shrinks/grows to fit exactly. */
+.contact-booking-embed {
+  width: 100%;
+  min-height: 400px;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+  box-shadow: var(--shadow-md);
 }
 
 /* Divider */
@@ -301,6 +345,18 @@
 .contact-content > .icons li a:hover {
   background: var(--color-accent-light);
   color: var(--color-accent);
+}
+
+/* On phones, tighten the icon row to match the footer's compact look so
+   all 7 icons fit comfortably on a 360px viewport. */
+@media (max-width: 640px) {
+  .contact-content > .icons {
+    gap: 0.5rem;
+  }
+  .contact-content > .icons li a {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
 }
 
 @media (max-width: 736px) {

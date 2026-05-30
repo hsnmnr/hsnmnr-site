@@ -23,6 +23,12 @@
   max-width: 56rem;
 }
 
+/* For pages with embedded third-party widgets that need ~1000px to
+   render comfortably (e.g. /contact with the Cal.com booking embed). */
+.page-main--xwide {
+  max-width: 68rem;
+}
+
 @media screen and (min-width: 736px) {
   .page-main {
     padding: 3rem 2rem;

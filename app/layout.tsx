@@ -17,7 +17,7 @@ import {
 import './tailwind.css';
 
 const twitterHandle = TWITTER_HANDLE.trim();
-const homepageTitle = `${AUTHOR_NAME} — Senior Software Engineer (Node.js, TypeScript)`;
+const homepageTitle = `${AUTHOR_NAME} — AI-first Senior Software Engineer`;
 
 const sourceSans = Source_Sans_3({
   weight: ['400', '700'],
