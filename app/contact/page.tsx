@@ -16,7 +16,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ContactPage() {
   return (
-    <PageWrapper>
+    <PageWrapper mainClassName="page-main--xwide">
       <section className="contact-page">
         <header className="contact-header">
           <h1 className="page-title">Get in Touch</h1>
