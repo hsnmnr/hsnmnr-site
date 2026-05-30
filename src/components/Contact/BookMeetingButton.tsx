@@ -12,17 +12,14 @@ export default function BookMeetingButton() {
   return (
     <a
       href={`https://cal.com/${CAL_LINK}`}
-      className="contact-booking-button"
+      className="button button-primary booking-cta"
       onClick={(e: MouseEvent<HTMLAnchorElement>) => {
         if (openModal(CAL_LINK)) e.preventDefault();
       }}
     >
-      <FontAwesomeIcon
-        icon={faCalendarCheck}
-        className="contact-booking-button__icon"
-      />
+      <FontAwesomeIcon icon={faCalendarCheck} className="booking-cta__icon" />
       <span>Book a Meeting</span>
-      <span className="contact-booking-button__arrow" aria-hidden="true">
+      <span className="booking-cta__arrow" aria-hidden="true">
         →
       </span>
     </a>

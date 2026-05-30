@@ -38,11 +38,18 @@ describe('Hero', () => {
 
     const aboutButton = screen.getByRole('link', { name: /about me/i });
     expect(aboutButton).toHaveAttribute('href', '/about');
-    expect(aboutButton).toHaveClass('button-primary');
+    expect(aboutButton).toHaveClass('button-secondary');
 
     const resumeButton = screen.getByRole('link', { name: /view resume/i });
     expect(resumeButton).toHaveAttribute('href', '/resume');
     expect(resumeButton).toHaveClass('button-secondary');
+
+    const bookingButton = screen.getByRole('link', { name: /book a meeting/i });
+    expect(bookingButton).toHaveAttribute(
+      'href',
+      expect.stringContaining('cal.com'),
+    );
+    expect(bookingButton).toHaveClass('button-primary');
   });
 
   it('has decorative background elements', () => {
