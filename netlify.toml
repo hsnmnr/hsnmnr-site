@@ -9,3 +9,7 @@
 [build.environment]
   # Pin Node to a current LTS. Netlify's Agent Runners want 22+.
   NODE_VERSION = "22"
+  # Google Tag Manager container ID. Public value (renders into every
+  # page's <head>), so committing it to source is fine and keeps
+  # builds reproducible across branches without dashboard config.
+  NEXT_PUBLIC_GTM_ID = "GTM-5Q586FR8"
