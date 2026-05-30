@@ -31,6 +31,9 @@ export default function ContactPage() {
           <div className="contact-divider">
             <span>or book a meeting</span>
           </div>
+          <p className="contact-booking-hint">
+            Pick a time that works — I&apos;ll send a Google Calendar invite.
+          </p>
 
           <div className="contact-booking-embed">
             <CalEmbed />
