@@ -19,31 +19,34 @@ export default function ContactIcons() {
 
   return (
     <ul className="icons">
-      {data.map((s) => (
-        <li key={s.label}>
-          <a
-            href={s.link}
-            aria-label={
-              s.cal
-                ? `${s.label} (opens scheduler)`
-                : `${s.label} (opens in new tab)`
-            }
-            target={s.cal ? undefined : '_blank'}
-            rel={s.cal ? undefined : 'noopener noreferrer'}
-            onClick={
-              s.cal
-                ? (e: MouseEvent<HTMLAnchorElement>) => {
-                    if (openModal(s.cal!.link)) {
-                      e.preventDefault();
+      {data.map((s) => {
+        const cal = s.cal;
+        return (
+          <li key={s.label}>
+            <a
+              href={s.link}
+              aria-label={
+                cal
+                  ? `${s.label} (opens scheduler)`
+                  : `${s.label} (opens in new tab)`
+              }
+              target={cal ? undefined : '_blank'}
+              rel={cal ? undefined : 'noopener noreferrer'}
+              onClick={
+                cal
+                  ? (e: MouseEvent<HTMLAnchorElement>) => {
+                      if (openModal(cal.link)) {
+                        e.preventDefault();
+                      }
                     }
-                  }
-                : undefined
-            }
-          >
-            <FontAwesomeIcon icon={s.icon} className="size-5" />
-          </a>
-        </li>
-      ))}
+                  : undefined
+              }
+            >
+              <FontAwesomeIcon icon={s.icon} className="size-5" />
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 }

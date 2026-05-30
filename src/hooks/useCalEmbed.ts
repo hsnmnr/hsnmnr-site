@@ -59,8 +59,14 @@ function readTheme(): Theme {
   return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
 }
 
-function useTheme(): Theme {
-  const [theme, setTheme] = useState<Theme>('light');
+// Returns null until the first post-hydration render so callers can
+// hold off rendering theme-dependent content until the real theme is
+// known. A blocking head script in app/layout.tsx sets `data-theme` on
+// `<html>` before hydration, so `readTheme()` is correct as soon as the
+// first effect runs — but initial useState would lock us to 'light' for
+// one paint and cause a flash + duplicate iframe load for dark users.
+function useTheme(): Theme | null {
+  const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
     setTheme(readTheme());
@@ -73,6 +79,28 @@ function useTheme(): Theme {
   }, []);
 
   return theme;
+}
+
+// Schedule work for an idle moment after first paint, with a setTimeout
+// fallback for browsers without requestIdleCallback. Returns a cleanup
+// that cancels the scheduled call if it hasn't fired yet.
+function scheduleIdle(fn: () => void): () => void {
+  if (typeof window === 'undefined') return () => {};
+  const ric = (
+    window as Window & {
+      requestIdleCallback?: (
+        cb: () => void,
+        opts?: { timeout: number },
+      ) => number;
+      cancelIdleCallback?: (id: number) => void;
+    }
+  ).requestIdleCallback;
+  if (ric) {
+    const id = ric(fn, { timeout: 2000 });
+    return () => window.cancelIdleCallback?.(id);
+  }
+  const id = window.setTimeout(fn, 1500);
+  return () => window.clearTimeout(id);
 }
 
 /**
@@ -88,16 +116,23 @@ export function useCalModal() {
   const theme = useTheme();
 
   useEffect(() => {
-    themeRef.current = theme;
+    if (theme !== null) themeRef.current = theme;
   }, [theme]);
 
+  // Defer Cal embed.js load to idle so it's off the critical path on
+  // every page (ContactIcons renders in the global Footer). By the time
+  // a user clicks the icon, init has almost always finished; if not,
+  // openModal returns false and the native href takes over.
   useEffect(() => {
     let cancelled = false;
-    ensureInit(CAL_NAMESPACE_MODAL).then((cal) => {
-      if (!cancelled) apiRef.current = cal;
+    const cancelIdle = scheduleIdle(() => {
+      ensureInit(CAL_NAMESPACE_MODAL).then((cal) => {
+        if (!cancelled) apiRef.current = cal;
+      });
     });
     return () => {
       cancelled = true;
+      cancelIdle();
     };
   }, []);
 
@@ -122,7 +157,7 @@ export function useCalModal() {
  * Inline embed hook. Initializes the inline namespace and reports the
  * current site theme so the caller can pass it to `<Cal />` config.
  */
-export function useCalInline(): { theme: Theme } {
+export function useCalInline(): { theme: Theme | null } {
   const theme = useTheme();
 
   useEffect(() => {
