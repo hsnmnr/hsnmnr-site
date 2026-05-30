@@ -20,8 +20,9 @@ export default function PersonSchema() {
   const personData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
     name: AUTHOR_NAME,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     image: `${SITE_URL}/images/me.jpg`,
     jobTitle: currentJob.position,
     ...(email && { email }),

@@ -45,8 +45,9 @@ describe('PersonSchema', () => {
     );
     const data = JSON.parse(script?.innerHTML || '{}');
 
-    expect(data.url).toBe(SITE_URL);
+    expect(data.url).toBe(`${SITE_URL}/`);
     expect(data.image).toBe(`${SITE_URL}/images/me.jpg`);
+    expect(data['@id']).toBe(`${SITE_URL}/#person`);
   });
 
   it('includes social links in sameAs', () => {

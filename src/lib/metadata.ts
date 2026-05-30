@@ -15,10 +15,12 @@ export function createPageMetadata({
 }: PageMetadataOptions): Metadata {
   const absoluteUrl = path ? new URL(path, SITE_URL).toString() : undefined;
   const pageTitle = `${title} | ${AUTHOR_NAME}`;
+  const twitterHandle = TWITTER_HANDLE.trim();
 
   return {
     title,
     description,
+    ...(path ? { alternates: { canonical: path } } : {}),
     openGraph: {
       type: 'website',
       locale: 'en_US',
@@ -37,8 +39,7 @@ export function createPageMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: TWITTER_HANDLE,
-      creator: TWITTER_HANDLE,
+      ...(twitterHandle ? { site: twitterHandle, creator: twitterHandle } : {}),
       title: pageTitle,
       description,
       images: ['/images/me.jpg'],
