@@ -4,6 +4,8 @@ date: '2026-05-01'
 description: 'Postgres CDC into ClickHouse via Kafka + Debezium, MaterializedPostgreSQL, and ClickPipes: setup, schemas, monitoring SQL, and where each one breaks.'
 ---
 
+![Cover illustration for Three Ways to Set Up CDC from Postgres to ClickHouse, showing the data flow from Postgres into ClickHouse.](/images/writing/cdc-cover-devto-light.png)
+
 You cannot run analytical queries on the same Postgres primary that serves your application without paying for it in CPU and connections. A read replica does not help: Postgres is row-oriented and built for OLTP, not for scanning tens of millions of rows for a `GROUP BY`. If you want sub-second dashboards over a real dataset you need a column store on the side.
 
 We picked ClickHouse. The interesting question is not how to query ClickHouse. The interesting question is how to keep it in sync with Postgres. That is what Change Data Capture (CDC) solves.
@@ -47,18 +49,7 @@ A note on connection requirements: ClickPipes (option 3) needs a direct Postgres
 
 ## Option 1: Kafka and Debezium
 
-```mermaid
-flowchart LR
-    PG[(Postgres)] -->|writes| WAL[WAL<br>logical decoding]
-    WAL --> SLOT[Replication slot<br>pgoutput]
-    SLOT --> DBZ[Debezium<br>on Kafka Connect]
-    DBZ --> TOPIC[(Kafka topic<br>per table)]
-    TOPIC --> SINK[ClickHouse Sink]
-    SINK --> CH[(ClickHouse)]
-    TOPIC -.fan-out.-> ANALYTICS[Analytics<br>service]
-    TOPIC -.fan-out.-> SEARCH[Search<br>indexer]
-    TOPIC -.fan-out.-> AUDIT[Audit log]
-```
+![Postgres WAL flows through a replication slot into Debezium on Kafka Connect, which writes to per-table Kafka topics. A ClickHouse sink consumes those topics into ClickHouse; the same topics fan out to analytics, search indexing, and audit log consumers.](/images/writing/cdc-diagram-1-kafka.png)
 
 Debezium tails the Postgres WAL via a logical replication slot and publishes change events into Kafka. A separate sink consumes from Kafka and writes into ClickHouse. The same Kafka topic can fan out to your search index, your audit log, and your warehouse, which is the main reason teams accept the cost.
 
@@ -68,15 +59,7 @@ Pick this if you already operate Kafka, or if you need event streaming for reaso
 
 ## Option 2: MaterializedPostgreSQL
 
-```mermaid
-flowchart LR
-    APP[Application] --> PG[(Postgres)]
-    PG --> WAL[WAL]
-    WAL --> SLOT[Replication slot<br>+ publication]
-    SLOT ==direct stream==> ENGINE[MaterializedPostgreSQL<br>engine]
-    ENGINE --> CH[(ClickHouse<br>replicated tables)]
-    CH --> DASH[Dashboards]
-```
+![The application writes to Postgres; WAL changes flow through a replication slot and publication directly into the MaterializedPostgreSQL engine inside ClickHouse, which writes to local replicated tables that serve dashboards. No Kafka or external sink in the path.](/images/writing/cdc-diagram-2-materializedpostgresql.png)
 
 ClickHouse has a built-in database engine called [MaterializedPostgreSQL](https://clickhouse.com/docs/engines/database-engines/materialized-postgresql) that does CDC inside ClickHouse itself. No Kafka, no Debezium, no third process. The engine opens a Postgres replication slot directly and streams WAL changes into mirror tables on the ClickHouse side.
 
@@ -196,16 +179,7 @@ The constraint that ends MaterializedPostgreSQL is not technical: it is not supp
 
 ## Option 3: ClickHouse Cloud and ClickPipes
 
-```mermaid
-flowchart LR
-    APP[Application] --> PG[(Postgres<br>with publication)]
-    PG --> WAL[WAL]
-    WAL --> SLOT[Replication slot]
-    SLOT --> CP[ClickPipes<br>managed]
-    CP --> CHC[(ClickHouse Cloud)]
-    CHC --> DASH[Dashboards]
-    CP -. metrics, lag, errors .-> UI[ClickPipes UI]
-```
+![The application writes to Postgres with a publication configured; WAL changes flow through a replication slot into managed ClickPipes, which writes into ClickHouse Cloud serving dashboards. ClickPipes also emits metrics, lag, and errors to its built-in UI.](/images/writing/cdc-diagram-3-clickpipes.png)
 
 [ClickPipes](https://clickhouse.com/docs/integrations/clickpipes/postgres) does the same job as MaterializedPostgreSQL (read Postgres logical replication, write into ClickHouse) but as a managed pipeline on ClickHouse Cloud. Under the hood it is PeerDB. The setup is a connection string, a publication name, a slot name, and a destination database. There is a UI, an OpenAPI, and a Terraform provider.
 
