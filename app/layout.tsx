@@ -68,65 +68,18 @@ export const metadata: Metadata = {
     },
   },
   manifest: '/manifest.webmanifest',
+  // Icons default to the `dark` variant. The inline theme-init script and
+  // the ThemeToggle component swap the hrefs to the `light` variant when
+  // the active theme is light. Browsers ignore media-query favicon switching
+  // for the in-app toggle, so the swap happens in JS instead.
   icons: {
     icon: [
-      {
-        url: '/icons/hm-light.svg',
-        type: 'image/svg+xml',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icons/hm-dark.svg',
-        type: 'image/svg+xml',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icons/favicon-light.ico',
-        sizes: 'any',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icons/favicon-dark.ico',
-        sizes: 'any',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icons/hm-light-32.png',
-        type: 'image/png',
-        sizes: '32x32',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icons/hm-dark-32.png',
-        type: 'image/png',
-        sizes: '32x32',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icons/hm-light-16.png',
-        type: 'image/png',
-        sizes: '16x16',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icons/hm-dark-16.png',
-        type: 'image/png',
-        sizes: '16x16',
-        media: '(prefers-color-scheme: dark)',
-      },
+      { url: '/icons/hm-dark.svg', type: 'image/svg+xml' },
+      { url: '/icons/favicon-dark.ico', sizes: 'any' },
+      { url: '/icons/hm-dark-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icons/hm-dark-16.png', type: 'image/png', sizes: '16x16' },
     ],
-    apple: [
-      {
-        url: '/icons/hm-light-180.png',
-        sizes: '180x180',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icons/hm-dark-180.png',
-        sizes: '180x180',
-        media: '(prefers-color-scheme: dark)',
-      },
-    ],
+    apple: { url: '/icons/hm-dark-180.png', sizes: '180x180' },
   },
   openGraph: {
     type: 'website',
@@ -178,9 +131,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* CSP-safe theme initialization - prevents flash on load */}
+        {/* CSP-safe theme initialization - prevents flash on load.
+            Also swaps favicon hrefs from the default dark variant to light
+            when the active theme is light, so the tab icon matches the page
+            on first paint. */}
         <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var t=window.localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t)}else if(window.matchMedia('(prefers-color-scheme:dark)').matches){document.documentElement.setAttribute('data-theme','dark')}else{document.documentElement.setAttribute('data-theme','light')}}catch(e){}})();`}
+          {`(function(){try{var t=window.localStorage.getItem('theme');var theme;if(t==='dark'||t==='light'){theme=t}else if(window.matchMedia('(prefers-color-scheme:dark)').matches){theme='dark'}else{theme='light'}document.documentElement.setAttribute('data-theme',theme);if(theme==='light'){document.querySelectorAll('link[rel~="icon"],link[rel="apple-touch-icon"]').forEach(function(l){l.href=l.href.replace(/(hm-|favicon-)dark/g,'$1light')})}}catch(e){}})();`}
         </Script>
       </head>
       <body>
