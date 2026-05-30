@@ -64,6 +64,8 @@ jobs:
           NODE_ENV: production
           # Use environment variable for GA tracking ID
           NEXT_PUBLIC_GA_TRACKING_ID: ${{ vars.NEXT_PUBLIC_GA_TRACKING_ID }}
+          # Google Tag Manager container ID
+          NEXT_PUBLIC_GTM_ID: ${{ vars.NEXT_PUBLIC_GTM_ID }}
 
       - name: Verify build output
         run: |
