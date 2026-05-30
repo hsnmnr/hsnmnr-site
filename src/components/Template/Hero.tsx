@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import BookMeetingButton from '@/components/Contact/BookMeetingButton';
+
 import ThemePortrait from './ThemePortrait';
 
 export default function Hero() {
@@ -29,15 +31,13 @@ export default function Hero() {
         </div>
 
         <div className="hero-cta">
-          <Link href="/about" className="button button-primary">
+          <Link href="/about" className="button button-secondary">
             About Me
-          </Link>
-          <Link href="/contact" className="button button-primary">
-            Contact
           </Link>
           <Link href="/resume" className="button button-secondary">
             View Resume
           </Link>
+          <BookMeetingButton />
         </div>
       </div>
 

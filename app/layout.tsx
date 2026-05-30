@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Raleway, Source_Sans_3 } from 'next/font/google';
 import Script from 'next/script';
 
-import GoogleAnalytics from '@/components/Template/GoogleAnalytics';
+import GoogleTagManager from '@/components/Template/GoogleTagManager';
 import Navigation from '@/components/Template/Navigation';
 import ScrollToTop from '@/components/Template/ScrollToTop';
 import {
@@ -140,12 +140,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <GoogleTagManager />
         <ScrollToTop />
         <div className="site-wrapper">
           <Navigation />
           {children}
         </div>
-        <GoogleAnalytics />
       </body>
     </html>
   );

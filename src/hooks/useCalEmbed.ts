@@ -3,21 +3,7 @@
 import { getCalApi } from '@calcom/embed-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-// Same calLink (Cal account/event), but two LOCAL namespaces so the
-// inline embed on /contact and the modal triggered from the icon row
-// can't bleed state into each other.
-//
-// Why this matters: Cal stores per-namespace state when a modal opens
-// and doesn't clear it on close. Anything that subsequently makes Cal
-// re-evaluate that namespace — remounting the inline `<Cal />`, calling
-// `cal("ui", ...)` again, even another `cal("inline", ...)` — replays
-// the stored "modal was open" state and the modal reopens.
-//
-// Splitting namespaces means: modal namespace never has an inline
-// embed for state to bleed into; inline namespace never has a modal for
-// state to bleed out of. Each can manage its own lifecycle safely.
 export const CAL_LINK = 'hassanmunir/book-a-meeting';
-export const CAL_NAMESPACE_INLINE = 'book-a-meeting-inline';
 export const CAL_NAMESPACE_MODAL = 'book-a-meeting';
 
 // Brand accents from app/styles/tokens/colors.css. Keep in sync if the
@@ -37,21 +23,19 @@ const SHARED_UI_CONFIG = {
   },
 };
 
-// One init promise per namespace. Module-level so multiple hook mounts
-// in the same page session (e.g. footer ContactIcons + main-area
-// ContactIcons on /contact) don't redundantly call cal('ui').
-const initPromises = new Map<string, Promise<CalApi>>();
+// Single module-level init promise. Multiple hook mounts in the same
+// session (e.g. ContactIcons in the Footer + BookMeetingButton on
+// /contact) share one Cal API instance and one `cal('ui', ...)` call.
+let initPromise: Promise<CalApi> | null = null;
 
-function ensureInit(namespace: string): Promise<CalApi> {
-  const cached = initPromises.get(namespace);
-  if (cached) return cached;
-  const promise = (async () => {
-    const cal = await getCalApi({ namespace });
+function ensureInit(): Promise<CalApi> {
+  if (initPromise) return initPromise;
+  initPromise = (async () => {
+    const cal = await getCalApi({ namespace: CAL_NAMESPACE_MODAL });
     cal('ui', SHARED_UI_CONFIG);
     return cal;
   })();
-  initPromises.set(namespace, promise);
-  return promise;
+  return initPromise;
 }
 
 function readTheme(): Theme {
@@ -126,7 +110,7 @@ export function useCalModal() {
   useEffect(() => {
     let cancelled = false;
     const cancelIdle = scheduleIdle(() => {
-      ensureInit(CAL_NAMESPACE_MODAL).then((cal) => {
+      ensureInit().then((cal) => {
         if (!cancelled) apiRef.current = cal;
       });
     });
@@ -151,18 +135,4 @@ export function useCalModal() {
   }, []);
 
   return { openModal };
-}
-
-/**
- * Inline embed hook. Initializes the inline namespace and reports the
- * current site theme so the caller can pass it to `<Cal />` config.
- */
-export function useCalInline(): { theme: Theme | null } {
-  const theme = useTheme();
-
-  useEffect(() => {
-    ensureInit(CAL_NAMESPACE_INLINE);
-  }, []);
-
-  return { theme };
 }

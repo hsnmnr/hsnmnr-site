@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import CalEmbed from '@/components/Contact/CalEmbed';
+import BookMeetingButton from '@/components/Contact/BookMeetingButton';
 import ContactIcons from '@/components/Contact/ContactIcons';
 import EmailLink from '@/components/Contact/EmailLink';
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ContactPage() {
   return (
-    <PageWrapper mainClassName="page-main--xwide">
+    <PageWrapper>
       <section className="contact-page">
         <header className="contact-header">
           <h1 className="page-title">Get in Touch</h1>
@@ -35,8 +35,8 @@ export default function ContactPage() {
             Pick a time that works — I&apos;ll send a Google Calendar invite.
           </p>
 
-          <div className="contact-booking-embed">
-            <CalEmbed />
+          <div className="contact-booking-action">
+            <BookMeetingButton />
           </div>
 
           <div className="contact-divider">
