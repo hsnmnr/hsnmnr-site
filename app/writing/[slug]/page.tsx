@@ -7,9 +7,15 @@ import { ArticleSchema, JsonLd } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import MermaidDiagram from '@/components/Writing/MermaidDiagram';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
-import { AUTHOR_NAME, formatDate, SITE_URL } from '@/lib/utils';
-
-const OG_IMAGE = '/images/me.jpg';
+import {
+  AUTHOR_NAME,
+  formatDate,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_PATH,
+  OG_IMAGE_TYPE,
+  OG_IMAGE_WIDTH,
+  SITE_URL,
+} from '@/lib/utils';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -50,9 +56,11 @@ export async function generateMetadata({
       authors: [AUTHOR_NAME],
       images: [
         {
-          url: OG_IMAGE,
-          width: 1200,
-          height: 630,
+          url: OG_IMAGE_PATH,
+          secureUrl: new URL(OG_IMAGE_PATH, SITE_URL).toString(),
+          type: OG_IMAGE_TYPE,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
           alt: post.title,
         },
       ],
@@ -61,7 +69,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: [OG_IMAGE],
+      images: [OG_IMAGE_PATH],
     },
   };
 }

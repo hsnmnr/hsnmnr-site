@@ -7,6 +7,13 @@ export const SITE_URL = 'https://hassanmunir.me';
 export const AUTHOR_NAME = 'Hassan Munir';
 export const TWITTER_HANDLE = '';
 
+// Open Graph share card. 1200x630 at 1.91:1 meets the recommended size
+// for Facebook, LinkedIn, and X summary_large_image cards.
+export const OG_IMAGE_PATH = '/images/og/default.png';
+export const OG_IMAGE_TYPE = 'image/png';
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+
 // Image dimension constants
 export const AVATAR_SIZE = {
   hero: 120,
