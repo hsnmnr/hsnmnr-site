@@ -252,43 +252,19 @@
   margin: 0;
 }
 
-/* Booking embed */
-.contact-booking {
-  width: 100%;
-  margin: 0 auto 2.5rem;
-  padding-top: 1rem;
-  text-align: center;
-}
-
-.contact-booking-title {
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
-  margin: 0 0 0.5rem;
-  color: var(--color-fg-bold);
-}
-
-.contact-booking-hint {
-  font-size: var(--text-sm);
-  color: var(--color-fg-light);
-  margin: 0 0 1.5rem;
-}
-
+/* Booking embed — sits between two .contact-divider rows ("or book a
+   meeting" above, "or find me on" below). No fixed height: Cal
+   auto-resizes the iframe via postMessage and the container matches.
+   `min-height` is a loading skeleton only; once Cal reports its size,
+   the container shrinks/grows to fit exactly. */
 .contact-booking-embed {
-  /* No fixed height — Cal auto-resizes the iframe via postMessage and the
-     container grows to match. `min-height` reserves space so the iframe
-     load doesn't cause layout shift before Cal reports its size. */
   width: 100%;
-  min-height: 720px;
+  min-height: 400px;
+  margin-bottom: 2.5rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-bg-alt);
   box-shadow: var(--shadow-md);
-}
-
-@media (max-width: 640px) {
-  .contact-booking-embed {
-    min-height: 580px;
-  }
 }
 
 /* Divider */

@@ -28,20 +28,13 @@ export default function ContactPage() {
             <p className="contact-hint">Usually respond within 24 hours</p>
           </div>
 
-          <section
-            className="contact-booking"
-            aria-labelledby="booking-heading"
-          >
-            <h2 id="booking-heading" className="contact-booking-title">
-              Or book a meeting directly
-            </h2>
-            <p className="contact-booking-hint">
-              Pick a time that works — I&apos;ll send a Google Calendar invite.
-            </p>
-            <div className="contact-booking-embed">
-              <CalEmbed />
-            </div>
-          </section>
+          <div className="contact-divider">
+            <span>or book a meeting</span>
+          </div>
+
+          <div className="contact-booking-embed">
+            <CalEmbed />
+          </div>
 
           <div className="contact-divider">
             <span>or find me on</span>
