@@ -100,4 +100,53 @@ describe('PersonSchema', () => {
     expect(data.alumniOf.length).toBeGreaterThan(0);
     expect(data.alumniOf[0]['@type']).toBe('CollegeOrUniversity');
   });
+
+  it('includes a one-line description', () => {
+    const { container } = render(<PersonSchema />);
+
+    const script = container.querySelector(
+      'script[type="application/ld+json"]',
+    );
+    const data = JSON.parse(script?.innerHTML || '{}');
+
+    expect(typeof data.description).toBe('string');
+    expect(data.description.length).toBeGreaterThan(0);
+  });
+
+  it('includes address as PostalAddress', () => {
+    const { container } = render(<PersonSchema />);
+
+    const script = container.querySelector(
+      'script[type="application/ld+json"]',
+    );
+    const data = JSON.parse(script?.innerHTML || '{}');
+
+    expect(data.address).toBeDefined();
+    expect(data.address['@type']).toBe('PostalAddress');
+    expect(data.address.addressLocality).toBe('Lahore');
+    expect(data.address.addressCountry).toBe('PK');
+  });
+
+  it('includes knowsAbout topics for entity discovery', () => {
+    const { container } = render(<PersonSchema />);
+
+    const script = container.querySelector(
+      'script[type="application/ld+json"]',
+    );
+    const data = JSON.parse(script?.innerHTML || '{}');
+
+    expect(Array.isArray(data.knowsAbout)).toBe(true);
+    expect(data.knowsAbout.length).toBeGreaterThan(0);
+    // Spot-check that representative topics from each category are present
+    expect(data.knowsAbout).toEqual(
+      expect.arrayContaining([
+        'AI Engineering',
+        'Node.js',
+        'TypeScript',
+        'PostgreSQL',
+        'AWS',
+        'Backend Engineering',
+      ]),
+    );
+  });
 });
