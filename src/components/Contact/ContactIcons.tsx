@@ -1,38 +1,17 @@
 'use client';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { getCalApi } from '@calcom/embed-react';
 import type { MouseEvent } from 'react';
 
 import data from '@/data/contact';
 import { useCalEmbed } from '@/hooks/useCalEmbed';
 
-const CAL_CONFIG_BASE = {
-  layout: 'month_view' as const,
-  useSlotsViewOnSmallScreen: 'true' as const,
-};
-
-async function openCalModal(
-  e: MouseEvent<HTMLAnchorElement>,
-  cal: { link: string; namespace: string },
-  theme: 'light' | 'dark',
-) {
-  e.preventDefault();
-  const api = await getCalApi({ namespace: cal.namespace });
-  // Pass theme directly in config instead of relying on the latest
-  // `cal("ui", ...)` call — modal opens are stateless and this avoids
-  // any race with the theme observer.
-  api('modal', {
-    calLink: cal.link,
-    config: { ...CAL_CONFIG_BASE, theme },
-  });
-}
-
 export default function ContactIcons() {
-  // Initialize Cal + brand/theme config once per page so the modal
-  // opens themed correctly on first click. Returns the current theme so
-  // we can pass it explicitly to each modal open.
-  const { theme } = useCalEmbed();
+  // `openModal` is synchronous: it returns true only if Cal is already
+  // loaded. If it's not yet ready (slow connection, first paint), we
+  // skip `preventDefault` and let the native href take the user to
+  // cal.com — no queued modal call that fires after they've navigated.
+  const { openModal } = useCalEmbed();
 
   return (
     <ul className="icons">
@@ -47,10 +26,15 @@ export default function ContactIcons() {
             }
             target={s.cal ? undefined : '_blank'}
             rel={s.cal ? undefined : 'noopener noreferrer'}
-            // With JS: this onClick prevents navigation and opens the
-            // inline modal via the Cal instance initialized by
-            // useCalEmbed. Without JS: the `href` falls back to cal.com.
-            onClick={s.cal ? (e) => openCalModal(e, s.cal!, theme) : undefined}
+            onClick={
+              s.cal
+                ? (e: MouseEvent<HTMLAnchorElement>) => {
+                    if (openModal(s.cal!.link)) {
+                      e.preventDefault();
+                    }
+                  }
+                : undefined
+            }
           >
             <FontAwesomeIcon icon={s.icon} className="size-5" />
           </a>

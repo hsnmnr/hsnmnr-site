@@ -1,10 +1,12 @@
 'use client';
 
 import { getCalApi } from '@calcom/embed-react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const CAL_NAMESPACE = 'book-a-meeting';
 export const CAL_LINK = 'hassanmunir/book-a-meeting';
+
+type CalApi = Awaited<ReturnType<typeof getCalApi>>;
 
 // Brand accents from app/styles/tokens/colors.css. Keep in sync if the
 // palette changes.
@@ -28,8 +30,25 @@ function readTheme(): Theme {
  * `getCalApi` is idempotent — calling this hook from multiple components
  * on the same page is safe.
  */
-export function useCalEmbed(): { theme: Theme } {
+interface UseCalEmbedReturn {
+  theme: Theme;
+  /**
+   * Open the Cal modal if and only if Cal is already loaded on this page.
+   * Returns true if the modal was opened (and the caller should
+   * `preventDefault` on the click event); false if Cal isn't ready, in
+   * which case the caller should let the native `href` navigate to
+   * cal.com as a fallback.
+   *
+   * Synchronous on purpose: avoids the click→await→navigate race where a
+   * queued modal call fires on a page the user already left.
+   */
+  openModal: (calLink: string) => boolean;
+}
+
+export function useCalEmbed(): UseCalEmbedReturn {
   const [theme, setTheme] = useState<Theme>('light');
+  const apiRef = useRef<CalApi | null>(null);
+  const themeRef = useRef<Theme>('light');
 
   // Track the site theme via MutationObserver. Cal's own `theme: "auto"`
   // only follows prefers-color-scheme, which loses the in-app toggle.
@@ -45,12 +64,19 @@ export function useCalEmbed(): { theme: Theme } {
     return () => observer.disconnect();
   }, []);
 
+  // Keep a ref of the current theme so `openModal` (a stable callback)
+  // can read the latest value without recreating on every theme change.
+  useEffect(() => {
+    themeRef.current = theme;
+  }, [theme]);
+
   useEffect(() => {
     let cancelled = false;
 
     (async () => {
       const cal = await getCalApi({ namespace: CAL_NAMESPACE });
       if (cancelled) return;
+      apiRef.current = cal;
 
       cal('ui', {
         theme,
@@ -68,5 +94,20 @@ export function useCalEmbed(): { theme: Theme } {
     };
   }, [theme]);
 
-  return { theme };
+  const openModal = useCallback((calLink: string) => {
+    const api = apiRef.current;
+    if (!api) return false;
+
+    api('modal', {
+      calLink,
+      config: {
+        layout: 'month_view',
+        useSlotsViewOnSmallScreen: 'true',
+        theme: themeRef.current,
+      },
+    });
+    return true;
+  }, []);
+
+  return { theme, openModal };
 }
