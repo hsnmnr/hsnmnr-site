@@ -12,7 +12,10 @@
       <meta charset="UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <title>RSS Feed - <xsl:value-of select="/rss/channel/title"/></title>
-      <link rel="icon" href="/images/favicon/favicon.ico"/>
+      <link rel="icon" href="/icons/hm-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)"/>
+      <link rel="icon" href="/icons/hm-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)"/>
+      <link rel="icon" href="/icons/favicon-light.ico" sizes="any" media="(prefers-color-scheme: light)"/>
+      <link rel="icon" href="/icons/favicon-dark.ico" sizes="any" media="(prefers-color-scheme: dark)"/>
       <style>
         :root {
           color-scheme: light dark;

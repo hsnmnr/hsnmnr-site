@@ -67,6 +67,67 @@ export const metadata: Metadata = {
       'application/rss+xml': '/feed.xml',
     },
   },
+  manifest: '/manifest.webmanifest',
+  icons: {
+    icon: [
+      {
+        url: '/icons/hm-light.svg',
+        type: 'image/svg+xml',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icons/hm-dark.svg',
+        type: 'image/svg+xml',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icons/favicon-light.ico',
+        sizes: 'any',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icons/favicon-dark.ico',
+        sizes: 'any',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icons/hm-light-32.png',
+        type: 'image/png',
+        sizes: '32x32',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icons/hm-dark-32.png',
+        type: 'image/png',
+        sizes: '32x32',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icons/hm-light-16.png',
+        type: 'image/png',
+        sizes: '16x16',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icons/hm-dark-16.png',
+        type: 'image/png',
+        sizes: '16x16',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+    apple: [
+      {
+        url: '/icons/hm-light-180.png',
+        sizes: '180x180',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icons/hm-dark-180.png',
+        sizes: '180x180',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
