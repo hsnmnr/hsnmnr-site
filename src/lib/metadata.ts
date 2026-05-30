@@ -1,6 +1,14 @@
 import type { Metadata } from 'next';
 
-import { AUTHOR_NAME, SITE_URL, TWITTER_HANDLE } from './utils';
+import {
+  AUTHOR_NAME,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_PATH,
+  OG_IMAGE_TYPE,
+  OG_IMAGE_WIDTH,
+  SITE_URL,
+  TWITTER_HANDLE,
+} from './utils';
 
 interface PageMetadataOptions {
   title: string;
@@ -30,9 +38,11 @@ export function createPageMetadata({
       ...(absoluteUrl ? { url: absoluteUrl } : {}),
       images: [
         {
-          url: '/images/me.jpg',
-          width: 1200,
-          height: 630,
+          url: OG_IMAGE_PATH,
+          secureUrl: new URL(OG_IMAGE_PATH, SITE_URL).toString(),
+          type: OG_IMAGE_TYPE,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
           alt: AUTHOR_NAME,
         },
       ],
@@ -42,7 +52,7 @@ export function createPageMetadata({
       ...(twitterHandle ? { site: twitterHandle, creator: twitterHandle } : {}),
       title: pageTitle,
       description,
-      images: ['/images/me.jpg'],
+      images: [OG_IMAGE_PATH],
     },
   };
 }
