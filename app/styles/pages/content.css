@@ -207,8 +207,13 @@
 }
 
 .contact-email-link {
-  display: inline-flex;
-  align-items: baseline;
+  /* inline-block (not inline-flex) so the prefix + @domain spans flow
+     as continuous inline text. Inline-flex was making them separate
+     flex items, which caused the entire @domain to wrap to its own
+     line whenever the prefix got long. With inline-block, the long
+     hyphenated prefixes break at natural word boundaries (hyphens) and
+     @hassanmunir.me stays attached to the closest fragment. */
+  display: inline-block;
   padding: 0.75rem 1.5rem;
   font-size: var(--text-lg);
   font-weight: var(--font-weight-bold);
@@ -216,12 +221,8 @@
   background: var(--color-accent-light);
   border-radius: var(--radius-md);
   text-decoration: none;
-  /* Allow the animated email prefix to wrap on narrow viewports so long
-     messages ("you-can-email-me-at-literally-anything") don't force
-     horizontal page scroll. `overflow-wrap: anywhere` covers unbreakable
-     strings; `max-width: 100%` keeps the pill inside its container. */
   max-width: 100%;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   transition:
     background-color var(--duration-fast) var(--ease-out),
     transform var(--duration-fast) var(--ease-out),
