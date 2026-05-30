@@ -9,6 +9,11 @@ export default function CalEmbed() {
 
   return (
     <Cal
+      // Force a remount when the site theme flips — the Cal iframe reads
+      // `config.theme` only on initial mount and writes it into the iframe
+      // URL, so prop changes don't reach it. A new `key` unmounts the old
+      // iframe and mounts a fresh one in the new theme.
+      key={theme}
       namespace={CAL_NAMESPACE}
       calLink={CAL_LINK}
       // No fixed height / overflow — Cal auto-resizes the iframe via
