@@ -279,6 +279,105 @@
   margin-bottom: 2.5rem;
 }
 
+/* Live, accent-gradient CTA with a slow "breathing" glow so the page
+   has a focal point instead of a flat email + flat button stack.
+   Animation is disabled for reduced-motion users (see media query). */
+.contact-booking-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 1.75rem;
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.01em;
+  color: var(--color-white);
+  text-decoration: none;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    color-mix(in srgb, var(--color-accent) 70%, var(--color-accent-secondary)) 100%
+  );
+  border-radius: var(--radius-md);
+  box-shadow:
+    var(--shadow-md),
+    0 0 18px -6px var(--color-accent-glow);
+  cursor: pointer;
+  animation: contact-booking-pulse 2.6s ease-in-out infinite;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    filter var(--duration-fast) var(--ease-out);
+}
+
+@keyframes contact-booking-pulse {
+  0%,
+  100% {
+    box-shadow:
+      var(--shadow-md),
+      0 0 18px -6px var(--color-accent-glow);
+  }
+  50% {
+    box-shadow:
+      var(--shadow-lg),
+      0 0 28px -2px color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+}
+
+.contact-booking-button:hover {
+  transform: translateY(var(--lift-sm));
+  filter: brightness(1.06);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 32px -2px color-mix(in srgb, var(--color-accent) 45%, transparent);
+}
+
+.contact-booking-button:active {
+  transform: translateY(0);
+  box-shadow:
+    var(--shadow-sm),
+    0 0 12px -4px var(--color-accent-glow);
+}
+
+.contact-booking-button:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 3px var(--color-accent-light);
+}
+
+.contact-booking-button__icon {
+  font-size: 1.1em;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.contact-booking-button:hover .contact-booking-button__icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.contact-booking-button__arrow {
+  display: inline-block;
+  font-size: 1.05em;
+  line-height: 1;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.contact-booking-button:hover .contact-booking-button__arrow {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-booking-button {
+    animation: none;
+    transition: none;
+  }
+  .contact-booking-button__icon,
+  .contact-booking-button__arrow {
+    transition: none;
+  }
+}
+
 /* Divider */
 .contact-divider {
   display: flex;
