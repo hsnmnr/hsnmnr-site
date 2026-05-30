@@ -146,12 +146,19 @@
   transform: translateY(-1px);
 }
 
-/* CTA buttons */
+/* CTA buttons — two primaries on row 1 (About Me + Contact), secondary
+   spans both columns on row 2 (View Resume) so the whole block reads as
+   a deliberate stack instead of wrap-orphaning the third button. */
 .hero-cta {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 22rem;
+  margin: 0 auto;
+}
+
+.hero-cta > :nth-child(3) {
+  grid-column: 1 / -1;
 }
 
 /* Background */

@@ -32,11 +32,11 @@ export default function Hero() {
           <Link href="/about" className="button button-primary">
             About Me
           </Link>
-          <Link href="/resume" className="button button-secondary">
-            View Resume
-          </Link>
           <Link href="/contact" className="button button-primary">
             Contact
+          </Link>
+          <Link href="/resume" className="button button-secondary">
+            View Resume
           </Link>
         </div>
       </div>
