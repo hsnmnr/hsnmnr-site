@@ -13,10 +13,10 @@ export interface ContactItem {
   icon: IconDefinition;
   // If set, the UI opens an inline Cal.com modal on click instead of
   // navigating to `link`. The public `link` is preserved so it still
-  // appears in PersonSchema's `sameAs` for SEO.
+  // appears in PersonSchema's `sameAs` for SEO. `cal.link` is the Cal
+  // event slug, e.g. "hassanmunir/book-a-meeting".
   cal?: {
-    link: string; // e.g. "hassanmunir/book-a-meeting"
-    namespace: string;
+    link: string;
   };
 }
 
@@ -40,10 +40,7 @@ const data: ContactItem[] = [
     link: 'https://cal.com/hassanmunir/book-a-meeting',
     label: 'Book a meeting',
     icon: faCalendarCheck,
-    cal: {
-      link: 'hassanmunir/book-a-meeting',
-      namespace: 'book-a-meeting',
-    },
+    cal: { link: 'hassanmunir/book-a-meeting' },
   },
   {
     link: 'https://dev.to/hsnmnr',

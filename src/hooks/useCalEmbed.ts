@@ -37,6 +37,23 @@ const SHARED_UI_CONFIG = {
   },
 };
 
+// One init promise per namespace. Module-level so multiple hook mounts
+// in the same page session (e.g. footer ContactIcons + main-area
+// ContactIcons on /contact) don't redundantly call cal('ui').
+const initPromises = new Map<string, Promise<CalApi>>();
+
+function ensureInit(namespace: string): Promise<CalApi> {
+  const cached = initPromises.get(namespace);
+  if (cached) return cached;
+  const promise = (async () => {
+    const cal = await getCalApi({ namespace });
+    cal('ui', SHARED_UI_CONFIG);
+    return cal;
+  })();
+  initPromises.set(namespace, promise);
+  return promise;
+}
+
 function readTheme(): Theme {
   if (typeof document === 'undefined') return 'light';
   return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
@@ -58,31 +75,12 @@ function useTheme(): Theme {
   return theme;
 }
 
-// Module-level singleton for the MODAL namespace's init. Multiple
-// ContactIcons can mount (footer + /contact's main content); we only
-// want `cal("ui", ...)` called once globally so we don't re-evaluate
-// modal state any more than necessary.
-let modalInitPromise: Promise<CalApi> | null = null;
-
-function ensureModalInit(): Promise<CalApi> {
-  if (modalInitPromise) return modalInitPromise;
-  modalInitPromise = (async () => {
-    const cal = await getCalApi({ namespace: CAL_NAMESPACE_MODAL });
-    cal('ui', SHARED_UI_CONFIG);
-    return cal;
-  })();
-  return modalInitPromise;
-}
-
 /**
  * Click-to-open Cal modal. Returns a synchronous `openModal(calLink)`
  * that opens immediately if Cal is loaded, or returns false if not
  * (callers should let the native href fall back to cal.com in that
  * case — avoids a queued-call race where the modal opens on a page
  * the user already navigated away from).
- *
- * Uses the MODAL namespace; no inline embed in this namespace ever
- * exists, so state can't leak into anything.
  */
 export function useCalModal() {
   const apiRef = useRef<CalApi | null>(null);
@@ -95,7 +93,7 @@ export function useCalModal() {
 
   useEffect(() => {
     let cancelled = false;
-    ensureModalInit().then((cal) => {
+    ensureInit(CAL_NAMESPACE_MODAL).then((cal) => {
       if (!cancelled) apiRef.current = cal;
     });
     return () => {
@@ -121,16 +119,15 @@ export function useCalModal() {
 }
 
 /**
- * Inline embed config for the `<Cal />` component. Uses a separate
- * namespace from the modal so a modal opened from the icon row can't
- * trigger when the inline embed mounts or remounts (e.g. on theme
- * toggle via `key={theme}`).
+ * Inline embed hook. Initializes the inline namespace and reports the
+ * current site theme so the caller can pass it to `<Cal />` config.
  */
-export function useCalInline() {
+export function useCalInline(): { theme: Theme } {
   const theme = useTheme();
-  return {
-    theme,
-    namespace: CAL_NAMESPACE_INLINE,
-    calLink: CAL_LINK,
-  };
+
+  useEffect(() => {
+    ensureInit(CAL_NAMESPACE_INLINE);
+  }, []);
+
+  return { theme };
 }
