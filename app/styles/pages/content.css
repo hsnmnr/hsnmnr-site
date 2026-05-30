@@ -251,6 +251,45 @@
   margin: 0;
 }
 
+/* Booking embed */
+.contact-booking {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.contact-booking-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 0.5rem;
+  color: var(--color-fg-bold);
+}
+
+.contact-booking-hint {
+  font-size: var(--text-sm);
+  color: var(--color-fg-light);
+  margin: 0 0 1.5rem;
+}
+
+.contact-booking-embed {
+  /* Reserve vertical space so the iframe load doesn't cause CLS. The
+     month-view layout needs roughly this much room for the calendar +
+     time slots; Cal handles its own internal scrolling. */
+  height: 680px;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+@media (max-width: 640px) {
+  .contact-booking-embed {
+    height: 560px;
+  }
+}
+
 /* Divider */
 .contact-divider {
   display: flex;
