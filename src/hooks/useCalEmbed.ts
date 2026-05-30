@@ -20,6 +20,35 @@ function readTheme(): Theme {
   return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
 }
 
+// Module-level singleton: ensures `cal("ui", ...)` runs exactly once
+// per page session, no matter how many components mount useCalEmbed.
+//
+// On /contact, three callers mount the hook simultaneously (inline
+// CalEmbed + main-area ContactIcons + footer ContactIcons). Without
+// this guard each mount calls cal("ui") independently, which replays
+// Cal's per-namespace state — including any previously-opened modal —
+// and causes the modal to spontaneously reopen on every visit. Cal's
+// namespace state also survives Next.js client-side navigation, so the
+// problem compounds across page transitions.
+let calInitPromise: Promise<CalApi> | null = null;
+
+function ensureCalInit(): Promise<CalApi> {
+  if (calInitPromise) return calInitPromise;
+  calInitPromise = (async () => {
+    const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+    cal('ui', {
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+      cssVarsPerTheme: {
+        light: { 'cal-brand': CAL_BRAND_LIGHT },
+        dark: { 'cal-brand': CAL_BRAND_DARK },
+      },
+    });
+    return cal;
+  })();
+  return calInitPromise;
+}
+
 /**
  * Initialize Cal.com once per page and keep its theme in sync with the
  * site's `data-theme` attribute. Used by both the inline `<CalEmbed />`
@@ -70,31 +99,14 @@ export function useCalEmbed(): UseCalEmbedReturn {
     themeRef.current = theme;
   }, [theme]);
 
-  // Initialize Cal exactly once per page. The `ui` config here is
-  // intentionally theme-agnostic — `cssVarsPerTheme` defines both light
-  // and dark brand colors up front, and theme itself is passed per-open
-  // (inline via <Cal>'s config + key={theme} remount, modal via
-  // api('modal', ...) config). Calling `cal('ui', { theme })` on every
-  // theme change re-applies Cal's namespace state and was causing a
-  // previously-opened modal to spontaneously re-open after toggling.
+  // Grab the api ref. Init itself is handled by the module-level
+  // singleton `ensureCalInit` so multiple hook mounts don't re-call
+  // cal("ui") and replay Cal's namespace state.
   useEffect(() => {
     let cancelled = false;
-
-    (async () => {
-      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
-      if (cancelled) return;
-      apiRef.current = cal;
-
-      cal('ui', {
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-        cssVarsPerTheme: {
-          light: { 'cal-brand': CAL_BRAND_LIGHT },
-          dark: { 'cal-brand': CAL_BRAND_DARK },
-        },
-      });
-    })();
-
+    ensureCalInit().then((cal) => {
+      if (!cancelled) apiRef.current = cal;
+    });
     return () => {
       cancelled = true;
     };
